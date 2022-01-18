@@ -1,18 +1,72 @@
+
 <!DOCTYPE html>
 <html lang="en">
   <head>
-   <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
-new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
-j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
-'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
-})(window,document,'script','dataLayer','GTM-WZ66RJ9');
-    window.dataLayer.push ({
-    'bookCategory': 'fiction',
-    'bookTitle': 'Cien años de soledad',
-    'bookAuthor': 'Gabriel García Márquez'
-});</script>
+    <title>Test</title>
+    <link rel="shortcut icon" href="#">
+    <!--
+    Installing the Rudder JS SDK
+  -->
+    <script>
+      rudderanalytics = window.rudderanalytics = [];
+      for (
+        var methods = [
+            "load",
+            "page",
+            "track",
+            "identify",
+            "reset",
+            "group",
+            "alias",
+          ],
+          i = 0;
+        i < methods.length;
+        i++
+      ) {
+        var method = methods[i];
+        rudderanalytics[method] = (function (a) {
+          return function () {
+            rudderanalytics.push(
+              [a].concat(Array.prototype.slice.call(arguments))
+            );
+          };
+        })(method);
+      }
+      rudderanalytics.load(
+        "23p9IzJVnrAjd262Mqaqr9zTPJC",
+        "http://localhost:8080",
+        {
+          //configUrl: "https://api.dev.rudderlabs.com",
+          //configUrl: "https://api.rudderlabs.com",
+          configUrl:"http://localhost:5001",
+          logLevel: "DEBUG",
+        }
+      );
+
+  ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+  // window.rudderanalytics.identify('3');
+  //throw new Error("Custom error to be sent to sentry For titli");
+
+  // rudderanalytics.identify(
+  //  "Shrouti",
+  //  { email: "name@domain.com", abc: "test" });
+
+  // "home" is the name of the page.
+rudderanalytics.page("home", {
+  path: "path",
+  url: "url",
+  title: "title",
+  search: "search",
+  referrer: "referrer"
+});
+    </script>
+    
+    <script src="http://127.0.0.1:5501/dist/browser.js"></script>
+     <!-- <script src="https://cdn.rudderlabs.com/v1/rudder-analytics.min.js"></script>  -->
+    <!-- <script src="https://cdn.rudderlabs.com/v1/rudder-analytics-staging.min.js"></script> -->
   </head>
   <body>
-    <h1>Tag manager</h1>
+    <!-- <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-WZ66RJ9/" height="0" width="0" style="display: none; visibility: hidden;"></iframe></noscript> -->
+    <div id="root">Page Loaded. Check Console.</div>
   </body>
 </html>
