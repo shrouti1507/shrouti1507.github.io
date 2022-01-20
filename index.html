@@ -40,19 +40,13 @@
 // }
 
       rudderanalytics.load(
-        "1lp4zr8kEIx1s0CmuFi8a4Pu2Ui",
+        "1km7ilFVUr7CeInelInLK3MIlJ3",
         "http://localhost:8080",
         {
            //configUrl: "https://api.dev.rudderlabs.com",
-          configUrl: "https://api.rudderlabs.com",
+           configUrl: "https://api.rudderlabs.com",
           //configUrl:"http://localhost:5001",
           logLevel: "DEBUG",
-          integrations: {
-         All: true,
-         POSTHOG: {
-           loaded : "abc"
-         },
-       },
         }
       );
 
@@ -65,17 +59,22 @@
   //  { email: "name@domain.com", abc: "test" });
 
   // "home" is the name of the page.
-rudderanalytics.page({
-  path: "path",
-  url: "url",
-  title: "title",
-  search: "search",
-  referrer: "referrer",
-})
+// rudderanalytics.page({
+//   path: "path",
+//   url: "url",
+//   title: "title",
+//   search: "search",
+//   referrer: "referrer",
+// })
+      rudderanalytics.track("Track me", {
+      category: "category",
+      label: "label",
+      value: "value",
+});
     </script>
     
-    <script src="http://127.0.0.1:5501/dist/browser.js"></script>
-     <!-- <script src="https://cdn.rudderlabs.com/v1/rudder-analytics.min.js"></script>  -->
+<!--     <script src="http://127.0.0.1:5501/dist/browser.js"></script> -->
+     <script src="https://cdn.rudderlabs.com/v1/rudder-analytics.min.js"></script> 
     <!-- <script src="https://cdn.rudderlabs.com/v1/rudder-analytics-staging.min.js"></script> -->
   </head>
   <body>
