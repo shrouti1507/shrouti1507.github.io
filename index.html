@@ -32,14 +32,27 @@
           };
         })(method);
       }
+
+ 
+
+      const callBack = ()=>{
+        posthog.identify('1234')
+}
+
       rudderanalytics.load(
-        "1sL15HPBaRfsVhcugRjYn7W7Brn",
+        "1lp4zr8kEIx1s0CmuFi8a4Pu2Ui",
         "http://localhost:8080",
         {
-          configUrl: "https://api.dev.rudderlabs.com",
-          //configUrl: "https://api.rudderlabs.com",
+           //configUrl: "https://api.dev.rudderlabs.com",
+          configUrl: "https://api.rudderlabs.com",
           //configUrl:"http://localhost:5001",
           logLevel: "DEBUG",
+          integrations: {
+         All: true,
+         POSTHOG: {
+           loaded : callBack
+         },
+       },
         }
       );
 
@@ -52,18 +65,18 @@
   //  { email: "name@domain.com", abc: "test" });
 
   // "home" is the name of the page.
-rudderanalytics.page("checking GTM", {
+rudderanalytics.page({
   path: "path",
   url: "url",
   title: "title",
   search: "search",
-  referrer: "referrer"
-});
+  referrer: "referrer",
+})
     </script>
     
-<!--     <script src="http://127.0.0.1:5501/dist/browser.js"></script> -->
+    <script src="http://127.0.0.1:5501/dist/browser.js"></script>
      <!-- <script src="https://cdn.rudderlabs.com/v1/rudder-analytics.min.js"></script>  -->
-    <script src="https://cdn.rudderlabs.com/v1/rudder-analytics-staging.min.js"></script>
+    <!-- <script src="https://cdn.rudderlabs.com/v1/rudder-analytics-staging.min.js"></script> -->
   </head>
   <body>
     <!-- <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-WZ66RJ9/" height="0" width="0" style="display: none; visibility: hidden;"></iframe></noscript> -->
