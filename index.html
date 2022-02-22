@@ -4,78 +4,79 @@
   <head>
     <title>Test</title>
     <link rel="shortcut icon" href="#">
+    <meta name="facebook-domain-verification" content="oasfbwvd4rigtz5ehiy5i3me6kfu57" />
     <!--
-    Installing the Rudder JS SDK
+<!--     Installing the Rudder JS SDK -->
   -->
-    <script>
-      rudderanalytics = window.rudderanalytics = [];
-      for (
-        var methods = [
-            "load",
-            "page",
-            "track",
-            "identify",
-            "reset",
-            "group",
-            "alias",
-          ],
-          i = 0;
-        i < methods.length;
-        i++
-      ) {
-        var method = methods[i];
-        rudderanalytics[method] = (function (a) {
-          return function () {
-            rudderanalytics.push(
-              [a].concat(Array.prototype.slice.call(arguments))
-            );
-          };
-        })(method);
-      }
+<!--     <script> -->
+//       rudderanalytics = window.rudderanalytics = [];
+//       for (
+//         var methods = [
+//             "load",
+//             "page",
+//             "track",
+//             "identify",
+//             "reset",
+//             "group",
+//             "alias",
+//           ],
+//           i = 0;
+//         i < methods.length;
+//         i++
+//       ) {
+//         var method = methods[i];
+//         rudderanalytics[method] = (function (a) {
+//           return function () {
+//             rudderanalytics.push(
+//               [a].concat(Array.prototype.slice.call(arguments))
+//             );
+//           };
+//         })(method);
+//       }
 
  
 
-//       const callBack = ()=>{
-//         posthog.identify('1234')
-// }
+// //       const callBack = ()=>{
+// //         posthog.identify('1234')
+// // }
 
-      rudderanalytics.load(
-        "1km7ilFVUr7CeInelInLK3MIlJ3",
-        "http://localhost:8080",
-        {
-           //configUrl: "https://api.dev.rudderlabs.com",
-           configUrl: "https://api.rudderlabs.com",
-          //configUrl:"http://localhost:5001",
-          logLevel: "DEBUG",
-        }
-      );
+//       rudderanalytics.load(
+//         "1km7ilFVUr7CeInelInLK3MIlJ3",
+//         "http://localhost:8080",
+//         {
+//            //configUrl: "https://api.dev.rudderlabs.com",
+//            configUrl: "https://api.rudderlabs.com",
+//           //configUrl:"http://localhost:5001",
+//           logLevel: "DEBUG",
+//         }
+//       );
 
-  ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-  // window.rudderanalytics.identify('3');
-  //throw new Error("Custom error to be sent to sentry For titli");
+//   ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+//   // window.rudderanalytics.identify('3');
+//   //throw new Error("Custom error to be sent to sentry For titli");
 
-  // rudderanalytics.identify(
-  //  "Shrouti",
-  //  { email: "name@domain.com", abc: "test" });
+//   // rudderanalytics.identify(
+//   //  "Shrouti",
+//   //  { email: "name@domain.com", abc: "test" });
 
-  // "home" is the name of the page.
-rudderanalytics.page({
-  path: "path",
-  url: "url",
-  title: "title",
-  search: "search",
-  referrer: "referrer",
-})
-      rudderanalytics.track("Track me", {
-      category: "category",
-      label: "label",
-      value: "value",
-});
-    </script>
+//   // "home" is the name of the page.
+// rudderanalytics.page({
+//   path: "path",
+//   url: "url",
+//   title: "title",
+//   search: "search",
+//   referrer: "referrer",
+// })
+//       rudderanalytics.track("Track me", {
+//       category: "category",
+//       label: "label",
+//       value: "value",
+// });
+<!-- //     </script> -->
     
-<!--     <script src="http://127.0.0.1:5501/dist/browser.js"></script> -->
-      <script src="https://cdn.rudderlabs.com/v1/rudder-analytics.min.js"></script> 
-    <!-- <script src="https://cdn.rudderlabs.com/v1/rudder-analytics-staging.min.js"></script> -->
+// <!--     <script src="http://127.0.0.1:5501/dist/browser.js"></script> -->
+//       <script src="https://cdn.rudderlabs.com/v1/rudder-analytics.min.js"></script> 
+//     <!-- <script src="https://cdn.rudderlabs.com/v1/rudder-analytics-staging.min.js"></script> -->
   </head>
   <body>
     <!-- <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-WZ66RJ9/" height="0" width="0" style="display: none; visibility: hidden;"></iframe></noscript> -->
