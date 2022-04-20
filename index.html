@@ -40,7 +40,7 @@
         fbq("init", "326102245068809");
       }
       function track(){
-        fbq("track", "pageView");
+        fbq('track', 'Purchase', {value: 12, currency: 'USD'}, {eventID: 'EVENT_ID'});
       }
       
 
