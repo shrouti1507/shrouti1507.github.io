@@ -43,23 +43,79 @@
           }
         );
       }
-      // function identify() {
-      //   rudderanalytics.identify("user003", {
-      //     firstName: "John",
-      //     lastName: "Cena",
-      //     email: "john@wwe.com",
-      //     phone: "",
-      //     gender: "m",
-      //     birthday: "19990101",
-      //     city: "London",
-      //     country: "England",
-      //     zip: "81929120",
-      //     foo: "bar",
-      //   });
-      // }
+  
+  function page () {
+    rudderanalytics.page("category", "name", {
+  path: "path",
+  url: "url",
+  title: "title",
+  search: "search",
+  referrer: "referrer",
+})
+     
+  }
+
+   function identify() {
+        rudderanalytics.identify("user003", {
+          firstName: "John",
+          lastName: "Cena",
+          email: "john@wwe.com",
+          phone: "",
+          gender: "m",
+          birthday: "19990101",
+          city: "London",
+          country: "England",
+          zip: "81929120",
+          foo: "bar",
+        });
+      }
       function track() {
-      rudderanalytics.track('Order Completed', {
+      rudderanalytics.track('Product List Viewed', {
             checkout_id: 'what is checkout id here??',
+            order_id: "transactionId",
+            value: 31.98,
+            revenue: 23.45,
+            shipping: 4.00,
+            coupon: 'APPARELSALE',
+            currency: 'GBP',
+            products:[
+            {       product_id: 'product-bacon-jam',
+                    sku: 'sku-1',
+                    category: 'Merch',
+                    name: 'Food/Drink',
+                    brand: '',
+                    variant: 'Extra topped',
+                    price: 3.00,
+                    quantity: 2,
+                    currency: 'GBP',
+                    position: 1,
+                    value: 6.00,
+                    typeOfProduct: 'Food',
+                    url: 'https://www.example.com/product/bacon-jam',
+                    image_url: 'https://www.example.com/product/bacon-jam.jpg'
+                },
+                {   product_id: 'product-bacon-jam',
+                    sku: 'sku-1',
+                    category: 'Merch',
+                    name: 'Food/Drink',
+                    brand: '',
+                    variant: 'Extra topped',
+                    price: 3.00,
+                    quantity: 2,
+                    currency: 'GBP',
+                    position: 1,
+                    value: 6.00,
+                    typeOfProduct: 'Food',
+                    url: 'https://www.example.com/product/bacon-jam',
+                    image_url: 'https://www.example.com/product/bacon-jam.jpg'
+                }
+            ]
+        });
+      }
+      function CompletedCheckout() {
+      rudderanalytics.track('Checkout Started', {
+            checkout_id: 'what is checkout id here??',
+            event_id: 'eventIDTest',
             order_id: "transactionId",
             value: 31.98,
             revenue: 31.98,
@@ -68,7 +124,7 @@
             currency: 'GBP',
             products: [
                 {
-                    product_id: 'product-check-jam',
+                    product_id: 'product-bacon-jam',
                     sku: 'sku-1',
                     category: 'Merch',
                     name: 'Food/Drink',
@@ -84,7 +140,7 @@
                     image_url: 'https://www.example.com/product/bacon-jam.jpg'
                 },
                 {
-                    product_id: 'product-check-shirt',
+                    product_id: 'product-t-shirt',
                     sku: 'sku-2',
                     category: 'Merch',
                     name: 'T-Shirt',
@@ -119,9 +175,10 @@
             ]
         });
       }
-      function CompletedCheckout() {
-      rudderanalytics.track('Completed Checkout', {
+      function orderCompleted() {
+      rudderanalytics.track('Order Completed', {
             checkout_id: 'what is checkout id here??',
+            event_id: 'eventIDTest',
             order_id: "transactionId",
             value: 31.98,
             revenue: 31.98,
@@ -188,7 +245,19 @@
   </head>
   <body>
     <button onclick="load()">LOAD</button>
-    <button onclick="track()">TRACK</button> 
+    <button onclick="page()">Page</button>
+    <button onclick="identify()">Identify</button>
+    <button onclick="track()">Product List Viewed</button> 
     <button onclick="CompletedCheckout()">CompletedCheckout</button>
+    <button onclick="orderCompleted()">orderCompleted</button>
   </body>
 </html>
+
+
+
+
+
+
+
+
+
