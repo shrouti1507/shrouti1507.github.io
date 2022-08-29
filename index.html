@@ -1,200 +1,33 @@
-
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
-    <h1> Hello </h1>
-    <script>
-//       rudderanalytics = window.rudderanalytics = [];
-
-//       var methods = [
-//         "load",
-//         "page",
-//         "track",
-//         "identify",
-//         "alias",
-//         "group",
-//         "ready",
-//         "reset",
-//         "getAnonymousId",
-//         "setAnonymousId",
-//       ];
-
-//       for (var i = 0; i < methods.length; i++) {
-//         var method = methods[i];
-//         rudderanalytics[method] = (function test(methodName) {
-//           return function () {
-//             rudderanalytics.push(
-//               [methodName].concat(Array.prototype.slice.call(arguments))
-//             );
-//           };
-//         })(method);
-//         console.log(rudderanalytics[method]);
-//       }
-      
-//         console.log(typeof rudderanalytics.load);
-//         rudderanalytics.load(
-//           "1komnwgPVpPT21slRaFOdJmvwcs",
-//           //"http://localhost:8080",
-//           "https://rudderstacwihaveabesal.dataplane.rudderstack.com",
-//           {
-//             logLevel: "DEBUG",
-//           }
-//         );
-      
-//     rudderanalytics.page("category", "name", {
-//   path: "test/path",
-//   url: "url",
-//   title: "title",
-//   search: "/test/search",
-//   referrer: "https://utsab.github.io",
-// })
-     
-  
-
-//    function identify() {
-//         rudderanalytics.identify("user007", {
-//           firstName: "John",
-//           lastName: "Cena",
-//           email: "john@wwe.com",
-//           phone: "",
-//           gender: "m",
-//           birthday: "19990101",
-//           city: "London",
-//           country: "England",
-//           zip: "81929120",
-//           foo: "bar",
-//         });
-//       }
-//       function track() {
-//       rudderanalytics.track('Product List Viewed', {
-//             checkout_id: 'what is checkout id here??',
-//             order_id: "transactionId",
-//             value: 31.98,
-//             revenue: 23.45,
-//             shipping: 4.00,
-//             coupon: 'APPARELSALE',
-//             currency: 'GBP',
-//             products:[
-//             {       
-//                     category: 'Merch',
-//                     name: 'Food/Drink',
-//                     brand: '',
-//                     variant: 'Extra topped',
-//                     price: 3.00,
-//                     quantity: 2,
-//                     currency: 'GBP',
-//                     position: 1,
-//                     value: 6.00,
-//                     typeOfProduct: 'Food',
-//                     url: 'https://www.example.com/product/bacon-jam',
-//                     image_url: 'https://www.example.com/product/bacon-jam.jpg'
-//                 },
-//                 {   
-//                     category: 'Merch',
-//                     name: 'Food/Drink',
-//                     brand: '',
-//                     variant: 'Extra topped',
-//                     price: 3.00,
-//                     quantity: 2,
-//                     currency: 'GBP',
-//                     position: 1,
-//                     value: 6.00,
-//                     typeOfProduct: 'Food',
-//                     url: 'https://www.example.com/product/bacon-jam',
-//                     image_url: 'https://www.example.com/product/bacon-jam.jpg'
-//                 }
-//             ]
-//         });
-//       }
-//       function CompletedCheckout() {
-//       rudderanalytics.track('Checkout Started', {
-//             checkout_id: 'what is checkout id here??',
-//             event_id: 'eventIDTest',
-//             order_id: "transactionId",
-//             value: 31.98,
-//             revenue: 31.98,
-//             shipping: 4.00,
-//             coupon: 'APPARELSALE',
-//             currency: 'GBP',
-//             products: [
-//                 {
-                    
-//                     category: 'Merch',
-//                     name: 'Food/Drink',
-//                     brand: '',
-//                     variant: 'Extra topped',
-//                     price: 3.00,
-//                     quantity: 2,
-//                     currency: 'GBP',
-//                     position: 1,
-//                     value: 6.00,
-//                     typeOfProduct: 'Food',
-//                     url: 'https://www.example.com/product/bacon-jam',
-//                     image_url: 'https://www.example.com/product/bacon-jam.jpg'
-//                 },
-//                 {
-                    
-//                     category: 'Merch',
-//                     name: 'T-Shirt',
-//                     brand: 'Levis',
-//                     variant: 'White',
-//                     price: 12.99,
-//                     quantity: 1,
-//                     currency: 'GBP',
-//                     position: 2,
-//                     value: 12.99,
-//                     typeOfProduct: 'Shirt',
-//                     url: 'https://www.example.com/product/t-shirt',
-//                     image_url: 'https://www.example.com/product/t-shirt.jpg'
-//                 },
-//                 {
-                    
-//                     category: 'Merch',
-//                     name: 'T-Shirt-on-offer',
-//                     brand: 'Levis',
-//                     variant: 'Black',
-//                     price: 12.99,
-//                     quantity: 1,
-//                     currency: 'GBP',
-//                     position: 1,
-//                     value: 12.99,
-//                     coupon: 'APPARELSALE',
-//                     typeOfProduct: 'Shirt',
-//                     url: 'https://www.example.com/product/offer-t-shirt',
-//                     image_url: 'https://www.example.com/product/offer-t-shirt.jpg'
-//                 }
-//             ]
-//         });
-//       }
-//       function orderCompleted() {
-//       rudderanalytics.track('Started Order', {
-//         "revenue": "ABCD",
-//     "smart accessories": true,
-//     "device": {
-//       "id": "t0wolxcm9yGTwhCN",
-//       "type": "macOS 10.15"
-//     }
-//   });
-      }
-        </script>
-    <!--<script src="/Users/shrouti/workspace/rudder-sdk-js/dist/browser.js"></script> -->
-    <!-- <script src="../../../Workspace/rudder-sdk-js/dist/browser.js"></script> -->
-<!--          <script src="https://cdn.rudderlabs.com/v1/rudder-analytics.min.js"></script>  -->
-  </head>
-  <body>
-<!--     <button onclick="load()">LOAD</button>
-    <button onclick="page()">Page</button>
-    <button onclick="identify()">Identify</button>
-    <button onclick="track()">Product List Viewed</button> 
-    <button onclick="CompletedCheckout()">CompletedCheckout</button>
-    <button onclick="orderCompleted()">orderCompleted</button>
-    <p>
-         testing my <a href="http://shrouti1507.github.io/">webpage</a> 
-         testing second <a href="second.html">webpage</a>  -->
-      </p>
-  </body>
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <script>
+    !function(e){if(!window.pintrk){window.pintrk = function () {
+    window.pintrk.queue.push(Array.prototype.slice.call(arguments))};var
+      n=window.pintrk;n.queue=[],n.version="3.0";var
+      t=document.createElement("script");t.async=!0,t.src=e;var
+      r=document.getElementsByTagName("script")[0];
+      r.parentNode.insertBefore(t,r)}}("https://s.pinimg.com/ct/core.js");
+    pintrk('load', '2613618545032', {em: 'shrouti@gmail.com'});
+    pintrk('page');
+    pintrk('track', 'checkout', {
+value: 100,
+order_quantity: 1,
+currency: 'USD',
+order_id: 'X-15148',
+line_items: [
+{
+product_price: 99.99,
+product_quantity: 1
+}
+]
+});
+    </script>
+</head>
+<body>
+</body>
 </html>
