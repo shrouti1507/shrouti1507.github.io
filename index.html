@@ -23,6 +23,16 @@ _kiq.push(['showSurvey', '77864']);
 _kiq.push(['eventHandler', 'show', function(){     
     console.log('survey showed');
 }]);
+_kiq.push(['eventHandler', 'close', function(){     
+    console.log('survey closed');
+}]);
+_kiq.push(['eventHandler', 'nodeRendered', function(){     
+    console.log('survey closed');
+}]);
+_kiq.push(['eventHandler', 'submit', function(answers_array, nudge_id, screen_id){ console.log(answers_array,nudge_id, screen_id ) }]);
+_kiq.push(['eventHandler', 'screenerReady', function(nudge_id, screen_id, screen_height){ console.log(nudge_id,screen_id, screen_height ) }]);
+_kiq.push(['eventHandler', 'noTargetMatch', function(){ console.log('no target match') }]);
+  
 </script>
 
   </body>
