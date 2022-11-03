@@ -1,43 +1,277 @@
+
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <title>Testing Qualaroo</title>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script>
+      rudderanalytics = window.rudderanalytics = [];
+
+      var methods = [
+        "load",
+        "page",
+        "track",
+        "identify",
+        "alias",
+        "group",
+        "ready",
+        "reset",
+        "getAnonymousId",
+        "setAnonymousId",
+      ];
+
+      for (var i = 0; i < methods.length; i++) {
+        var method = methods[i];
+        rudderanalytics[method] = (function test(methodName) {
+          return function () {
+            rudderanalytics.push(
+              [methodName].concat(Array.prototype.slice.call(arguments))
+            );
+          };
+        })(method);
+        console.log(rudderanalytics[method]);
+      }
+      
+        console.log(typeof rudderanalytics.load);
+        rudderanalytics.load(
+          // "2CIeIh09zi1BoCPf06QxNUw5pdD",
+          "1lp4zr8kEIx1s0CmuFi8a4Pu2Ui",
+          //"http://localhost:8080",
+           "https://rudderstacwihaveabesal.dataplane.rudderstack.com",
+          // "https://hosted-dev-dataplane.dev-rudder.rudderlabs.com",
+          {
+            configUrl: "https://api.rudderlabs.com",
+            logLevel: "DEBUG",
+           // destSDKBaseURL: "http://127.0.0.1:5501/dist/integrations"
+          }
+        );
+        function page() {   
+  rudderanalytics.page("category", "https://help.oncehub.com/help/creating-a-google-calendar-account-that-uses-your-business-email-address", {
+  path: "test-path",
+  url: "https://help.oncehub.com/help/creating-a-google-calendar-account-that-uses-your-business-email-address",
+  title: "title",
+  search: "search",
+  referrer: "https://help.oncehub.com/help/creating-a-google-calendar-account-that-uses-your-business-email-address",
+});
+        }
+     
+  
+
+   function identify() {
+        rudderanalytics.identify("user004", {
+          firstName: "ShroutiRudder",
+          lastName: "Rudderstack",
+          email: "shrouti@wwe.com",
+          phone: "",
+          gender: "m",
+          birthday: "19990101",
+          city: "London",
+          country: "England",
+          zip: "81929120",
+          foo: "bar"
+        },{
+          company: {
+            name: "test",
+            address: "test"
+          }
+        });
+      }
+      function track() {
+      rudderanalytics.track('Product List Viewed', {
+            checkout_id: 'what is checkout id here??',
+            order_id: "transactionId",
+            value: 31.98,
+            revenue: 23.45,
+            shipping: 4.00,
+            coupon: 'APPARELSALE',
+            currency: 'GBP',
+            products:[
+            {       product_id: 'abc',
+                    category: 'Merch',
+                    name: 'Food/Drink',
+                    brand: '',
+                    variant: 'Extra topped',
+                    price: 3.00,
+                    quantity: 2,
+                    currency: 'GBP',
+                    position: 1,
+                    value: 6.00,
+                    typeOfProduct: 'Food',
+                    url: 'https://www.example.com/product/bacon-jam',
+                    image_url: 'https://www.example.com/product/bacon-jam.jpg'
+                },
+                {     product_id: 'abc',
+                    category: 'Merch',
+                    name: 'Food/Drink',
+                    brand: '',
+                    variant: 'Extra topped',
+                    price: 3.00,
+                    quantity: 2,
+                    currency: 'GBP',
+                    position: 1,
+                    value: 6.00,
+                    typeOfProduct: 'Food',
+                    url: 'https://www.example.com/product/bacon-jam',
+                    image_url: 'https://www.example.com/product/bacon-jam.jpg'
+                }
+            ]
+        });
+      }
+      function orderCompleted() {
+      rudderanalytics.track('Order Completed', {
+            "customProp": "testProp",
+            checkout_id: 'what is checkout id here??',
+            event_id: 'eventIDordercompleted',
+            order_id: "transactionId",
+            value: 35.00,
+            //revenue: 31.98,
+            shipping: 4.00,
+            coupon: 'APPARELSALE',
+            currency: 'GBP',
+            // products: [],
+            products: [
+                {
+                  "customPropProd": "testPropProd",
+                  product_id: 'abc',
+                    category: 'Merch',
+                    name: 'Food/Drink',
+                    brand: '',
+                    variant: 'Extra topped',
+                    price: 3.00,
+                    quantity: 2,
+                    currency: 'GBP',
+                    position: 1,
+                    value: 6.00,
+                    typeOfProduct: 'Food',
+                    url: 'https://www.example.com/product/bacon-jam',
+                    image_url: 'https://www.example.com/product/bacon-jam.jpg'
+                }
+            //     {
+            //       product_id: 'abc',
+            //         category: 'Merch',
+            //         name: 'T-Shirt',
+            //         brand: 'Levis',
+            //         variant: 'White',
+            //         price: 12.99,
+            //         quantity: 1,
+            //         currency: 'GBP',
+            //         position: 2,
+            //         value: 12.99,
+            //         typeOfProduct: 'Shirt',
+            //         url: 'https://www.example.com/product/t-shirt',
+            //         image_url: 'https://www.example.com/product/t-shirt.jpg'
+            //     },
+            //     {
+            //       product_id: 'abc',
+            //         category: 'Merch',
+            //         name: 'T-Shirt-on-offer',
+            //         brand: 'Levis',
+            //         variant: 'Black',
+            //         price: 12.99,
+            //         quantity: 1,
+            //         currency: 'GBP',
+            //         position: 1,
+            //         value: 12.99,
+            //         coupon: 'APPARELSALE',
+            //         typeOfProduct: 'Shirt',
+            //         url: 'https://www.example.com/product/offer-t-shirt',
+            //         image_url: 'https://www.example.com/product/offer-t-shirt.jpg'
+            //     }
+             ]
+        });
+      }
+       function checkoutStarted() {
+        rudderanalytics.track('Initiate Checkout', {
+            checkout_id: 'what is checkout id here??',
+            //event_id: 'eventIDTest',
+            order_id: "transactionId",
+            value: 31.98,
+            //revenue: 31.98,
+            shipping: 4.00,
+            coupon: 'APPARELSALE',
+            currency: 'GBP',
+            products: [
+                {
+                  product_id: 'abc',
+                    category: 'Merch',
+                    name: 'Food/Drink',
+                    brand: '',
+                    variant: 'Extra topped',
+                    price: 3.00,
+                    quantity: 2,
+                    currency: 'GBP',
+                    position: 1,
+                    value: 6.00,
+                    typeOfProduct: 'Food',
+                    url: 'https://www.example.com/product/bacon-jam',
+                    image_url: 'https://www.example.com/product/bacon-jam.jpg'
+                }
+            //     {
+            //       product_id: 'abc',
+            //         category: 'Merch',
+            //         name: 'T-Shirt',
+            //         brand: 'Levis',
+            //         variant: 'White',
+            //         price: 12.99,
+            //         quantity: 1,
+            //         currency: 'GBP',
+            //         position: 2,
+            //         value: 12.99,
+            //         typeOfProduct: 'Shirt',
+            //         url: 'https://www.example.com/product/t-shirt',
+            //         image_url: 'https://www.example.com/product/t-shirt.jpg'
+            //     },
+            //     {
+            //       product_id: 'abc',
+            //         category: 'Merch',
+            //         name: 'T-Shirt-on-offer',
+            //         brand: 'Levis',
+            //         variant: 'Black',
+            //         price: 12.99,
+            //         quantity: 1,
+            //         currency: 'GBP',
+            //         position: 1,
+            //         value: 12.99,
+            //         coupon: 'APPARELSALE',
+            //         typeOfProduct: 'Shirt',
+            //         url: 'https://www.example.com/product/offer-t-shirt',
+            //         image_url: 'https://www.example.com/product/offer-t-shirt.jpg'
+            //     }
+             ]
+        });
+      }
+
+      function productAdded () {
+            rudderanalytics.track("Product Added", {
+              // product_id: "123",
+              // sku: "F15",
+              category: "Games",
+              name: "Game",
+              brand: "Gamepro",
+              variant: "111",
+              price: 13.49,
+              quantity: 11,
+              coupon: "DISC21",
+              position: 1,
+              url: "https://www.website.com/product/path",
+              image_url: "https://www.website.com/product/path.png",
+            });
+      }
+        </script>
+     <!-- <script src="/Users/shrouti/workspace/rudder-sdk-js/dist/browser.js"></script> -->
+    <script src="http://127.0.0.1:5501/dist/browser.js"></script>
+    // staging CDN
+     <!-- <script src="https://cdn.rudderlabs.com/v1.1/rudder-analytics.min.js"></script> -->
   </head>
   <body>
-    <h1>Qualaroo</h1>
- <!-- Qualaroo for shrouti1507.github.io -->
-<!-- Paste this code right after the <body> tag on every page of your site. -->
-<script type="text/javascript">
-  var _kiq = _kiq || [];
-  (function(){
-    setTimeout(function(){
-    var d = document, f = d.getElementsByTagName('script')[0], s = d.createElement('script'); s.type = 'text/javascript';
-    s.async = true; s.src = 'https://cl.qualaroo.com/ki.js/81960/j0E.js'; f.parentNode.insertBefore(s, f);
-    }, 1);
-  })();
-</script>
-
-<script type="text/javascript" charset="utf-8">
-_kiq.push(['identify', 'Shrouti']);
-_kiq.push(['showSurvey', '77864']);
-_kiq.push(['eventHandler', 'show', function(){     
-    console.log('survey showed');
-}]);
-_kiq.push(['eventHandler', 'close', function(){     
-    console.log('survey closed');
-}]);
-_kiq.push(['eventHandler', 'nodeRendered', function(){     
-    console.log('survey closed');
-}]);
-_kiq.push(['eventHandler', 'submit', function(answers_array, nudge_id, screen_id){ console.log(answers_array,nudge_id, screen_id ) }]);
-_kiq.push(['eventHandler', 'screenerReady', function(nudge_id, screen_id, screen_height){ console.log(nudge_id,screen_id, screen_height ) }]);
-_kiq.push(['eventHandler', 'noTargetMatch', function(){ console.log('no target match') }]);
-  
-</script>
-
+    <button onclick="load()">LOAD</button>
+    <button onclick="page()">Page</button>
+    <button onclick="identify()">Identify</button>
+    <button onclick="track()">Product List Viewed</button> 
+    <button onclick="orderCompleted()">order completed</button>
+    <button onclick="checkoutStarted()">Initiate Checkout</button>
+    <button onclick="productAdded()">Product Added</button>
   </body>
 </html>
-
-
-
-
