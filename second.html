@@ -1,11 +1,58 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-  </head>
-  <body>
-    <h1>Second Page</h1>
-         <p>
-         Going back to  <a href="index.html">first page</a> 
-      </p>
-  </body>
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>axeptio Web SDK</title>
+  <script>
+    window._axcb = window._axcb || [];
+    window.axeptioSettings= {
+    clientId:"63732ec8d7967eb5bc6c37c7",
+    };
+ 
+    (function(d,s) {
+    var t = d.getElementsByTagName(s)[0],e = d.createElement(s);
+    e.async = true; e.src = "//static.axept.io/sdk.js";
+    t.parentNode.insertBefore(e, t);
+    })(document, "script");
+    window._axcb.push(function(sdk){
+   // here you'll be able to access the methods and properties
+   // of the Axeptio SDK instance. 
+        window.__axeptioSDK.on('cookies:complete', function(choices){
+        console.log(choices);
+    });
+    });
+    </script>
+  <!-- <script>
+    
+    if(window.analytics && typeof window.analytics === 'object') {
+        function identify() {
+            window.analytics.identify('1234', {
+  email: 'Mihir@test.com' ,
+  name: 'Mihir'
+});
+        }
+     function group() {
+        window.analytics.group('5678', {
+  name: 'Acme Inc',
+  address: 'India'
+});
+     }  
+function track() {
+    window.analytics.track('New eventssss', {
+  amount: 100 
+}, { 
+  groupId: '5678' 
+});
+    }
+} 
+  </script> -->
+</head>
+<body>
+    <h1>Testing Axeptio Web SDK</h1>
+    <button onclick="identify()">Identify</button>
+    <button onclick="track()">Track</button> 
+    <button onclick="group()">Groupd</button> 
+</body>
 </html>
