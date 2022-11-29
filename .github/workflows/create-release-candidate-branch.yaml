@@ -5,6 +5,7 @@ on: workflow_dispatch
 jobs:
   create-branch:
     name: Create new branch
+      echo "github ref is $github.ref"
     runs-on: ubuntu-latest
     if: github.ref == 'refs/heads/develop' || startsWith(github.ref, 'refs/heads/hotfix-test/')
     steps:
