@@ -11,6 +11,9 @@ jobs:
   create-branch:
     name: Create new branch
     runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        node-version: [14.x, 16.x]
     if: github.ref == 'refs/heads/master-temp' || github.ref == 'refs/heads/main'
     steps:
       - name: Create branch
