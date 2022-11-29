@@ -18,4 +18,5 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
+          node-version: '16'
           branch: 'hotfix-test/${{ github.event.inputs.hotfix_name }}'
