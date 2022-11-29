@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [1.0.1](https://github.com/shrouti1507/shrouti1507.github.io/compare/v1.0.0...v1.0.1) (2022-11-29)
+
+
+### Miscellaneous
+
+* **release:** 1.0.2 ([9b8f295](https://github.com/shrouti1507/shrouti1507.github.io/commit/9b8f29523f9ba7deb558a95bc3baaef4ad8fc9d9))
+
 ### [1.0.2](https://github.com/shrouti1507/shrouti1507.github.io/compare/v1.0.0...v1.0.2) (2022-11-29)
 
 ### 1.0.1 (2022-11-29)
