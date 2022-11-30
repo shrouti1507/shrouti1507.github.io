@@ -1,17 +1,43 @@
 name: Create new release candidate branch
 
-on: workflow_dispatch
+on: 
+  workflow_dispatch:
+    inputs:
+          release_name:
+            description: Release branch name
+            required: true
 
 jobs:
   create-branch:
     name: Create new branch
-      echo "github ref is $github.ref"
     runs-on: ubuntu-latest
-    if: github.ref == 'refs/heads/develop' || startsWith(github.ref, 'refs/heads/hotfix-test/')
+    if: github.ref == 'refs/heads/develop' || startsWith(github.ref, 'refs/heads/hotfix/')
     steps:
-      - name: Create branch
-        uses: peterjgrainger/action-create-branch@v2.2.0
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        with:
-          branch: 'new-release-candidate-from-develop'
+       - name: Create release branch
+         id: create-release
+         env:
+          HUSKY: 0
+         run: |
+          source_branch_name=${GITHUB_REF##*/}
+          git fetch origin main --depth=1
+          git merge origin/main
+          current_version=$(jq -r .version package.json)
+
+          npm run release -- --skip.commit --skip.tag --skip.changelog
+          new_version=$(jq -r .version package.json)
+          git reset --hard
+
+          branch_name="release/${github.event.inputs.release_name}${new_version}"
+
+          echo "New version is $new_version"
+          echo "New release branch name is $branch_name"
+
+          echo "::set-output name=source_branch_name::$source_branch_name"
+          echo "::set-output name=branch_name::$branch_name"
+          echo "::set-output name=new_version::$new_version"
+       - name: Create branch
+         uses: peterjgrainger/action-create-branch@v2.2.0
+         env:
+           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+         with:
+           branch: 'release/${{ steps.create-release.outputs.branch_name }}'
