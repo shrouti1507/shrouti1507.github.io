@@ -27,7 +27,7 @@ jobs:
           new_version=$(jq -r .version package.json)
           git reset --hard
 
-          branch_name="release/${github.event.inputs.release_name}${new_version}"
+          branch_name="release/${new_version}"
 
           echo "New version is $new_version"
           echo "New release branch name is $branch_name"
