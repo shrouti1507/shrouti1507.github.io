@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [1.1.0](https://github.com/shrouti1507/shrouti1507.github.io/compare/v1.0.4...v1.1.0) (2022-12-01)
+
+
+### Features
+
+* **variable:** adding the feat commit ([8479fb7](https://github.com/shrouti1507/shrouti1507.github.io/commit/8479fb7e727f8caa93b360d20c314a02290c52e1))
+
 ### 1.0.4 (2022-12-01)
 
 ## [1.0.3](https://github.com/shrouti1507/shrouti1507.github.io/compare/v1.0.2...v1.0.3) (2022-12-01)
