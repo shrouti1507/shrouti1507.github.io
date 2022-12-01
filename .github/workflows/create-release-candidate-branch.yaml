@@ -32,7 +32,7 @@ jobs:
           HUSKY: 0
         run: |
           source_branch_name=${GITHUB_REF##*/}
-          git fetch origin main --depth=1
+          git config --global --add safe.directory "$GITHUB_WORKSPACE" && git fetch origin main --depth=1
           git merge origin/main
           current_version=$(jq -r .version package.json)
 
@@ -56,4 +56,4 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
-          branch: 'release/${{ steps.create-release.outputs.branch_name }}'
+          branch: '${{ steps.create-release.outputs.branch_name }}'
