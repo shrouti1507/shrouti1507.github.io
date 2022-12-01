@@ -2,6 +2,19 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [1.0.3](https://github.com/shrouti1507/shrouti1507.github.io/compare/v1.0.2...v1.0.3) (2022-12-01)
+
+
+### Miscellaneous
+
+* adding extra command ([c10d2da](https://github.com/shrouti1507/shrouti1507.github.io/commit/c10d2daaf21ac73caab7c4ccf21ddb6e6d593ccb))
+* adding extra command ([6c676dd](https://github.com/shrouti1507/shrouti1507.github.io/commit/6c676dd2a05e461848747de0020bb72962a93faa))
+* adding extra command ([80768a0](https://github.com/shrouti1507/shrouti1507.github.io/commit/80768a0ec4f3bd9c28f15b4bb53891e856e3a74e))
+* adding extra command ([72ae8cc](https://github.com/shrouti1507/shrouti1507.github.io/commit/72ae8ccd8c4c485de1e337da46f8f0a70e3c6187))
+* altering release branch ([c46744b](https://github.com/shrouti1507/shrouti1507.github.io/commit/c46744baf9b473b43b6abf119971ac34df6a6404))
+* release 1.0.1 ([39df4bd](https://github.com/shrouti1507/shrouti1507.github.io/commit/39df4bd261502f76a5be4ca2724f3b64e757446a))
+* release 1.0.2 ([3f475b1](https://github.com/shrouti1507/shrouti1507.github.io/commit/3f475b1f8b479670ddd53ef75eb2d1e5f05d0079))
+
 ## [1.0.2](https://github.com/shrouti1507/shrouti1507.github.io/compare/v1.0.1...v1.0.2) (2022-12-01)
 
 
