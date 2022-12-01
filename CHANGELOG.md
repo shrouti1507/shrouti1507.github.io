@@ -2,6 +2,16 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [1.0.4](https://github.com/shrouti1507/shrouti1507.github.io/compare/v1.0.3...v1.0.4) (2022-12-01)
+
+
+### Miscellaneous
+
+* adding extra command ([1b88122](https://github.com/shrouti1507/shrouti1507.github.io/commit/1b881225ab7cd29a4881990cc14bf6d3be018def))
+* adding extra command ([447874a](https://github.com/shrouti1507/shrouti1507.github.io/commit/447874a405336917b1ca7002a6a3fe0eaae30294))
+* adding extra command ([955b3be](https://github.com/shrouti1507/shrouti1507.github.io/commit/955b3beda8272c34f5b0a045fa13d3353eb6d96f))
+* **release:** 1.0.4 ([9d9ef74](https://github.com/shrouti1507/shrouti1507.github.io/commit/9d9ef74a2be3c6c9ff90f842f5cff2f2d9132e07))
+
 ### 1.0.4 (2022-12-01)
 
 ## [1.0.3](https://github.com/shrouti1507/shrouti1507.github.io/compare/v1.0.2...v1.0.3) (2022-12-01)
