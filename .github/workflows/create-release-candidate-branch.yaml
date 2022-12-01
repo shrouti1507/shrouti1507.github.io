@@ -6,7 +6,7 @@ jobs:
   create-branch:
     name: Create new branch
     runs-on: ubuntu-latest
-    if: github.ref == 'refs/heads/develop' || startsWith(github.ref, 'refs/heads/hotfix/')
+    if: github.ref == 'refs/heads/develop' || startsWith(github.ref, 'refs/heads/hotfix-test/')
     steps:
       - name: Checkout source branch
         uses: actions/checkout@v2
