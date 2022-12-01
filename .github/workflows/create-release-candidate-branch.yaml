@@ -1,11 +1,6 @@
 name: Create new release candidate branch
 
-on: 
-  workflow_dispatch:
-    inputs:
-          release_name:
-            description: Release branch name
-            required: true
+on: workflow_dispatch
 
 jobs:
   create-branch:
