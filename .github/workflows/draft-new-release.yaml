@@ -78,4 +78,4 @@ jobs:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           pr_title: 'chore(release): pulling ${{ steps.create-release.outputs.branch_name }} into main'
           pr_body: ":crown: *An automated PR*\n\n${{ steps.finish-release.outputs.commit_summary }}"
-          pr_reviewer: 'ktgowtham'
+          pr_reviewer: 'shrouti1507'
