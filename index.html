@@ -44,17 +44,19 @@
           {
             configUrl: "https://api.rudderlabs.com",
             logLevel: "DEBUG",
-           // destSDKBaseURL: "http://127.0.0.1:5501/dist/integrations"
+            // required for production staging only.
+            // run local server from legacy.
+           destSDKBaseURL: "http://127.0.0.1:5500/rudder-sdk-js/dist/legacy/integrations/"
           }
         );
         function page() {   
-  rudderanalytics.page("category", "https://help.oncehub.com/help/creating-a-google-calendar-account-that-uses-your-business-email-address", {
-  path: "test-path",
-  url: "https://help.oncehub.com/help/creating-a-google-calendar-account-that-uses-your-business-email-address",
-  title: "title",
-  search: "search",
-  referrer: "https://help.oncehub.com/help/creating-a-google-calendar-account-that-uses-your-business-email-address",
-});
+                rudderanalytics.page("category", "https://help.oncehub.com/help/creating-a-google-calendar-account-that-uses-your-business-email-address", {
+                path: "test-path",
+                url: "https://help.oncehub.com/help/creating-a-google-calendar-account-that-uses-your-business-email-address",
+                title: "title",
+                search: "search",
+                referrer: "https://help.oncehub.com/help/creating-a-google-calendar-account-that-uses-your-business-email-address",
+           });
         }
      
   
@@ -123,7 +125,7 @@
       rudderanalytics.track('Order Completed', {
             "customProp": "testProp",
             checkout_id: 'what is checkout id here??',
-            event_id: 'eventIDordercompleted',
+            event_id: 'purchaseId',
             order_id: "transactionId",
             value: 35.00,
             //revenue: 31.98,
@@ -148,37 +150,6 @@
                     url: 'https://www.example.com/product/bacon-jam',
                     image_url: 'https://www.example.com/product/bacon-jam.jpg'
                 }
-            //     {
-            //       product_id: 'abc',
-            //         category: 'Merch',
-            //         name: 'T-Shirt',
-            //         brand: 'Levis',
-            //         variant: 'White',
-            //         price: 12.99,
-            //         quantity: 1,
-            //         currency: 'GBP',
-            //         position: 2,
-            //         value: 12.99,
-            //         typeOfProduct: 'Shirt',
-            //         url: 'https://www.example.com/product/t-shirt',
-            //         image_url: 'https://www.example.com/product/t-shirt.jpg'
-            //     },
-            //     {
-            //       product_id: 'abc',
-            //         category: 'Merch',
-            //         name: 'T-Shirt-on-offer',
-            //         brand: 'Levis',
-            //         variant: 'Black',
-            //         price: 12.99,
-            //         quantity: 1,
-            //         currency: 'GBP',
-            //         position: 1,
-            //         value: 12.99,
-            //         coupon: 'APPARELSALE',
-            //         typeOfProduct: 'Shirt',
-            //         url: 'https://www.example.com/product/offer-t-shirt',
-            //         image_url: 'https://www.example.com/product/offer-t-shirt.jpg'
-            //     }
              ]
         });
       }
@@ -208,37 +179,6 @@
                     url: 'https://www.example.com/product/bacon-jam',
                     image_url: 'https://www.example.com/product/bacon-jam.jpg'
                 }
-            //     {
-            //       product_id: 'abc',
-            //         category: 'Merch',
-            //         name: 'T-Shirt',
-            //         brand: 'Levis',
-            //         variant: 'White',
-            //         price: 12.99,
-            //         quantity: 1,
-            //         currency: 'GBP',
-            //         position: 2,
-            //         value: 12.99,
-            //         typeOfProduct: 'Shirt',
-            //         url: 'https://www.example.com/product/t-shirt',
-            //         image_url: 'https://www.example.com/product/t-shirt.jpg'
-            //     },
-            //     {
-            //       product_id: 'abc',
-            //         category: 'Merch',
-            //         name: 'T-Shirt-on-offer',
-            //         brand: 'Levis',
-            //         variant: 'Black',
-            //         price: 12.99,
-            //         quantity: 1,
-            //         currency: 'GBP',
-            //         position: 1,
-            //         value: 12.99,
-            //         coupon: 'APPARELSALE',
-            //         typeOfProduct: 'Shirt',
-            //         url: 'https://www.example.com/product/offer-t-shirt',
-            //         image_url: 'https://www.example.com/product/offer-t-shirt.jpg'
-            //     }
              ]
         });
       }
@@ -260,17 +200,25 @@
             });
       }
         </script>
+        <!-- Local Tests -->
+          <!-- v1-staging test -->
+          <!-- <script src="http://127.0.0.1:5501/dist/browser.js"></script> -->
+
+         <!--Production-staging / v1.1 test -->
+         <script src="http://127.0.0.1:5500/rudder-sdk-js/dist/legacy/rudder-analytics.js"></script>
+
+         <!-- CDN Tests -->
      <!-- <script src="/Users/shrouti/workspace/rudder-sdk-js/dist/browser.js"></script> -->
-     <script src="http://127.0.0.1:5501/dist/browser.js"></script> 
-    // staging CDN
      <!-- <script src="https://cdn.rudderlabs.com/v1.1/rudder-analytics.min.js"></script> -->
+     <!-- <script src="https://cdn.rudderlabs.com/v1.1/rudder-analytics-staging.min.js"></script> -->
+     
   </head>
   <body>
     <button onclick="load()">LOAD</button>
     <button onclick="page()">Page</button>
     <button onclick="identify()">Identify</button>
     <button onclick="track()">Product List Viewed</button> 
-    <button onclick="orderCompleted()">Purchase</button>
+    <button onclick="orderCompleted()">order completed</button>
     <button onclick="checkoutStarted()">Initiate Checkout</button>
     <button onclick="productAdded()">Product Added</button>
   </body>
