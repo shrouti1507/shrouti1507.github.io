@@ -27,11 +27,10 @@ jobs:
         with:
           fetch-depth: 0
 
-      - name: Setup Node
+      - name: Setup Node 16
         uses: actions/setup-node@v3
         with:
-          node-version-file: '.nvmrc'
-          cache: 'npm'
+          node-version: 16
 
       - name: Create GitHub Release
         id: create_release
@@ -45,8 +44,8 @@ jobs:
       - name: Create pull request into develop
         uses: repo-sync/pull-request@v2
         with:
-          source_branch: 'production'
-          destination_branch: 'production-staging'
+          source_branch: 'main'
+          destination_branch: 'develop'
           github_token: ${{ secrets.PAT }}
           pr_title: 'chore(release): pulling main into develop post release v${{ steps.extract-version.outputs.release_version }}'
           pr_body: ':crown: *An automated PR*'
