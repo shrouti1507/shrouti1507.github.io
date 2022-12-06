@@ -1,1 +1,1 @@
-let a = 0;
+let a = 'checking the github release';
