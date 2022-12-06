@@ -36,7 +36,7 @@ jobs:
         id: create_release
         env:
           HUSKY: 0
-          GITHUB_TOKEN: ${{ secrets.PAT }}
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           CONVENTIONAL_GITHUB_RELEASER_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
           npx conventional-github-releaser -p angular
