@@ -6,7 +6,7 @@ jobs:
   draft-new-release:
     name: Draft a new release
     runs-on: ubuntu-latest
-    if: github.ref == 'refs/heads/new-release-candidate' || startsWith(github.ref, 'refs/heads/hotfix-test/')
+    if: github.ref == 'refs/heads/develop' || startsWith(github.ref, 'refs/heads/hotfix/')
     steps:
       - name: Checkout source branch
         uses: actions/checkout@v2
@@ -78,4 +78,4 @@ jobs:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           pr_title: 'chore(release): pulling ${{ steps.create-release.outputs.branch_name }} into main'
           pr_body: ":crown: *An automated PR*\n\n${{ steps.finish-release.outputs.commit_summary }}"
-          pr_reviewer: 'ktgowtham'
+          pr_reviewer: 'shrouti1507'
