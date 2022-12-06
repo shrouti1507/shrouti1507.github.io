@@ -2,6 +2,18 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [1.2.0](https://github.com/shrouti1507/shrouti1507.github.io/compare/v1.1.0...v1.2.0) (2022-12-06)
+
+
+### Features
+
+* **cdn:** adding CDN urls ([5e84b8e](https://github.com/shrouti1507/shrouti1507.github.io/commit/5e84b8ec3ae4d3daf7663a00dc331388a27661ba))
+
+
+### Miscellaneous
+
+* release 1.1.0 ([e4a84aa](https://github.com/shrouti1507/shrouti1507.github.io/commit/e4a84aaf056ed6d928c07c0e05e45f82ed788db3))
+
 ## [1.1.0](https://github.com/shrouti1507/shrouti1507.github.io/compare/v1.0.3...v1.1.0) (2022-12-01)
 
 
