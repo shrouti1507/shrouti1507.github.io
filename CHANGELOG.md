@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### 1.2.1 (2022-12-08)
+
+
+### Bug Fixes
+
+* **variable:** changing variable value ([17f0c8d](https://github.com/shrouti1507/shrouti1507.github.io/commit/17f0c8dfd4800adc46474749aed10719fe43e166))
+
 ## [1.2.0](https://github.com/shrouti1507/shrouti1507.github.io/compare/v1.1.0...v1.2.0) (2022-12-06)
 
 
