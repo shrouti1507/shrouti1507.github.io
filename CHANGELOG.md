@@ -2,6 +2,23 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [1.2.1](https://github.com/shrouti1507/shrouti1507.github.io/compare/v1.2.0...v1.2.1) (2022-12-08)
+
+
+### Bug Fixes
+
+* **var:** fixing the variable value once again ([3ba3470](https://github.com/shrouti1507/shrouti1507.github.io/commit/3ba3470b7f31430fa5040e656a994bd14f9bbb27))
+* **variable:** changing variable value ([17f0c8d](https://github.com/shrouti1507/shrouti1507.github.io/commit/17f0c8dfd4800adc46474749aed10719fe43e166))
+
+
+### Miscellaneous
+
+* editing token ([913258e](https://github.com/shrouti1507/shrouti1507.github.io/commit/913258e5c13d983ad36316c6d79bc50569cf580f))
+* editing variable ([996549f](https://github.com/shrouti1507/shrouti1507.github.io/commit/996549f3efaf49740ca39f1e4513fb0be50fd56c))
+* **release:** 1.2.1 ([f72366e](https://github.com/shrouti1507/shrouti1507.github.io/commit/f72366e39d91da8c26c0fe6e4bc4705e02ea54fd))
+* **release:** 1.2.2 ([561be92](https://github.com/shrouti1507/shrouti1507.github.io/commit/561be92bfdb0a918139b8507be7ab13ed1531687))
+* **release:** 1.2.3 ([2d8f486](https://github.com/shrouti1507/shrouti1507.github.io/commit/2d8f486b33fe19d7a0bd1bddd0656ada2398176d))
+
 ### 1.2.3 (2022-12-08)
 
 ### [1.2.2](https://github.com/shrouti1507/shrouti1507.github.io/compare/v1.2.0...v1.2.2) (2022-12-08)
