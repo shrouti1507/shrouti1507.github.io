@@ -1,1 +1,1 @@
-let a = 'checking draft release';
+let a = 'checking draft releases';
