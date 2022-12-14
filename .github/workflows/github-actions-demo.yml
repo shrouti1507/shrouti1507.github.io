@@ -16,3 +16,20 @@ jobs:
         run: |
           ls ${{ github.workspace }}
       - run: echo "🍏 This job's status is ${{ job.status }}."
+      - name: Checkout repo
+        uses: actions/checkout@v3
+      - name: Overwrite file
+        uses: "DamianReeves/write-file-action@master"
+        with:
+          path: test-file.html
+          write-mode: overwrite
+          contents: |
+            console.log('some contents')
+            
+      - name: Commit & Push
+        uses: Andro999b/push@v1.3
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          branch: main
+          force: true
+          message: 'Overwritten by Github Actions - ${date}'
