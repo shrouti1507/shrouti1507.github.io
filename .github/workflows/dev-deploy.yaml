@@ -36,13 +36,16 @@ jobs:
          which python
       - name: Display current Version of Config-Schema
         run: echo $(head -1 .version)
+      - name: Get current date
+        id: date
+        run: echo "::set-output name=date::$(date +'%Y-%m-%dT%H:%M:%S')"
       - name: Overwrite file
         uses: "DamianReeves/write-file-action@master"
         with:
           path: test-file.html
           write-mode: append
           contents: |
-            console.log('dev deployment happened at ${{ github.event.repository.updated_at}} on $GITHUB_REF')
+            console.log('dev deployment happened at ${{ steps.date.outputs.date }} on $GITHUB_REF')
             
       - name: Commit & Push
         uses: Andro999b/push@v1.3
@@ -51,4 +54,5 @@ jobs:
           branch: develop
           force: true
           message: 'Overwritten by Github Actions - ${date}'
+
 
