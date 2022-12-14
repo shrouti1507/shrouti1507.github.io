@@ -45,7 +45,7 @@ jobs:
           path: test-file.html
           write-mode: append
           contents: |
-            console.log('dev deployment happened at ${{ steps.date.outputs.date }} on $GITHUB_REF')
+            console.log('\n dev deployment happened at ${{ steps.date.outputs.date }} on $GITHUB_REF')
             
       - name: Commit & Push
         uses: Andro999b/push@v1.3
