@@ -2,6 +2,19 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [1.3.0](https://github.com/shrouti1507/shrouti1507.github.io/compare/v1.2.3...v1.3.0) (2022-12-14)
+
+
+### Features
+
+* **ghaction:** adding new gaction ([ecf8ab7](https://github.com/shrouti1507/shrouti1507.github.io/commit/ecf8ab78ba298dbbba75a0d4b64222a4ff5f805b))
+* **ghaction:** qa purpose ([8dec468](https://github.com/shrouti1507/shrouti1507.github.io/commit/8dec468d2ed7116bd792997c5de87ac23d892764))
+* **ghaction:** qa purpose ([f9d02bc](https://github.com/shrouti1507/shrouti1507.github.io/commit/f9d02bc0fb5ce1f268314dbff0e8bf23817c9b9f))
+* **ghaction:** qa purpose ([16f4740](https://github.com/shrouti1507/shrouti1507.github.io/commit/16f4740efc3d3246b8115afa40272c895528d38d))
+* **ghaction:** qa purpose ([ceaa095](https://github.com/shrouti1507/shrouti1507.github.io/commit/ceaa0959bd2e8c8a64e8f3468f2694cdb5e2ed16))
+* **ghaction:** qa purpose ([3d1f0ed](https://github.com/shrouti1507/shrouti1507.github.io/commit/3d1f0ed915406e48526517ab6826aacdaac79b55))
+* **ghaction:** qa purpose ([5f14372](https://github.com/shrouti1507/shrouti1507.github.io/commit/5f1437203733119abd43208d1f627305fe0002a5))
+
 ### 1.2.3 (2022-12-08)
 
 ### [1.2.2](https://github.com/shrouti1507/shrouti1507.github.io/compare/v1.2.0...v1.2.2) (2022-12-08)
