@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
+    "test": "jest",
     "release": "npx standard-version"
   },
   "repository": {
@@ -17,5 +17,9 @@
   "bugs": {
     "url": "https://github.com/shrouti1507/shrouti1507.github.io/issues"
   },
-  "homepage": "https://github.com/shrouti1507/shrouti1507.github.io#readme"
+  "homepage": "https://github.com/shrouti1507/shrouti1507.github.io#readme",
+  "dependencies": {
+    "jest": "^29.3.1",
+    "save-dev": "^0.0.1-security"
+  }
 }
