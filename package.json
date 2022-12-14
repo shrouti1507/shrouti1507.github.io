@@ -1,0 +1,27 @@
+{
+  "name": "shrouti1507.github.io",
+  "version": "1.0.0",
+  "description": "",
+  "main": "tst2.js",
+  "directories": {
+    "test": "test"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "release": "npx standard-version"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/shrouti1507/shrouti1507.github.io.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/shrouti1507/shrouti1507.github.io/issues"
+  },
+  "homepage": "https://github.com/shrouti1507/shrouti1507.github.io#readme",
+  "dependencies": {
+    "jest": "^29.3.1"
+  }
+}
