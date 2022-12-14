@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [1.3.0](https://github.com/shrouti1507/shrouti1507.github.io/compare/v1.2.3...v1.3.0) (2022-12-14)
+
+
+### Features
+
+* **ghaction:** adding new gaction ([ecf8ab7](https://github.com/shrouti1507/shrouti1507.github.io/commit/ecf8ab78ba298dbbba75a0d4b64222a4ff5f805b))
+
 ### 1.2.3 (2022-12-08)
 
 ### [1.2.2](https://github.com/shrouti1507/shrouti1507.github.io/compare/v1.2.0...v1.2.2) (2022-12-08)
