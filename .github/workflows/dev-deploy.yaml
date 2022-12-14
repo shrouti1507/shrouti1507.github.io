@@ -4,7 +4,6 @@ on:
   push:
     branches:
       - develop
-
 jobs:
   deploy:
     runs-on: ubuntu-latest
@@ -41,9 +40,9 @@ jobs:
         uses: "DamianReeves/write-file-action@master"
         with:
           path: test-file.html
-          write-mode: overwrite
+          write-mode: append
           contents: |
-            console.log('dev deployment happened')
+            console.log('dev deployment happened at ${{ github.event.repository.updated_at}} on $GITHUB_REF')
             
       - name: Commit & Push
         uses: Andro999b/push@v1.3
