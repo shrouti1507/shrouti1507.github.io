@@ -1,4 +1,4 @@
-name: Deploy config to DB
+name: Deploy config to dev DB
 
 on:
   push:
