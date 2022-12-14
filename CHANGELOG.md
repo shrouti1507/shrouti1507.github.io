@@ -2,6 +2,31 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [1.3.0](https://github.com/shrouti1507/shrouti1507.github.io/compare/v1.2.3...v1.3.0) (2022-12-14)
+
+
+### Features
+
+* **ghaction:** adding new gaction ([ecf8ab7](https://github.com/shrouti1507/shrouti1507.github.io/commit/ecf8ab78ba298dbbba75a0d4b64222a4ff5f805b))
+* **ghaction:** qa purpose ([3a003e8](https://github.com/shrouti1507/shrouti1507.github.io/commit/3a003e8dc3f45a265ccf2dd2ba73130ddd904ee9))
+* **ghaction:** qa purpose ([6bea44e](https://github.com/shrouti1507/shrouti1507.github.io/commit/6bea44e83980fa5c0494888f335fb59fd7f2c684))
+* **ghaction:** qa purpose ([7c4a093](https://github.com/shrouti1507/shrouti1507.github.io/commit/7c4a0932ef15b11455127bfd18c21092bfe30147))
+* **ghaction:** qa purpose ([53ab08c](https://github.com/shrouti1507/shrouti1507.github.io/commit/53ab08c5a0d01cbf5cf57cb57ec102f8943095fd))
+* **ghaction:** qa purpose ([16f4740](https://github.com/shrouti1507/shrouti1507.github.io/commit/16f4740efc3d3246b8115afa40272c895528d38d))
+* **ghaction:** qa purpose ([ceaa095](https://github.com/shrouti1507/shrouti1507.github.io/commit/ceaa0959bd2e8c8a64e8f3468f2694cdb5e2ed16))
+* **ghaction:** qa purpose ([3d1f0ed](https://github.com/shrouti1507/shrouti1507.github.io/commit/3d1f0ed915406e48526517ab6826aacdaac79b55))
+* **ghaction:** qa purpose ([5f14372](https://github.com/shrouti1507/shrouti1507.github.io/commit/5f1437203733119abd43208d1f627305fe0002a5))
+
+
+### Bug Fixes
+
+* **value:** checking title ([67146e5](https://github.com/shrouti1507/shrouti1507.github.io/commit/67146e56fc67c2f5fdae9a3d0acdb02fe278757a))
+
+
+### Miscellaneous
+
+* **release:** 1.3.0 ([56e4268](https://github.com/shrouti1507/shrouti1507.github.io/commit/56e426845e682c2f9b4c1c0e0dae991aa09da461))
+
 ### 1.2.3 (2022-12-08)
 
 ### [1.2.2](https://github.com/shrouti1507/shrouti1507.github.io/compare/v1.2.0...v1.2.2) (2022-12-08)
