@@ -1,4 +1,4 @@
-name: Deploy config to DB
+name: Deploy config to dev DB
 
 on:
   push:
@@ -42,7 +42,7 @@ jobs:
       - name: Overwrite file
         uses: "DamianReeves/write-file-action@master"
         with:
-          path: dev-deploy-test.html
+          path: dev-deploy.html
           write-mode: append
           contents: |
             console.log('\n dev deployment happened at ${{ steps.date.outputs.date }}')

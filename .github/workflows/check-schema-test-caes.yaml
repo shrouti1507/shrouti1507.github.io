@@ -2,7 +2,7 @@ name: Test schema files
 
 on:
   pull_request:
-    branches: [ 'main', 'develop', 'ci/add-new-github-actions-pipeline' ]
+    branches: [ 'main', 'develop' ]
 
 jobs:
   build:
