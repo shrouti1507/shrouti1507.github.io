@@ -86,44 +86,64 @@
 
     <script>
       function fireChrome() {
-        rudderanalytics.track("Fire from chrome", {
-          orderId: "123",
-          products: [
-            {
-              product_id: 1234,
-              product_name: "Track Pants",
-              amount: 1,
-              price: 220,
-            },
-            {
-              product_id: 5768,
-              product_name: "T-Shirt",
-              amount: 5,
-              price: 1058,
-            },
-          ],
+         rudderanalytics.track('testing from chrome', {
+            checkout_id: 'what is checkout id here??',
+            //event_id: 'eventIDTest',
+            order_id: "transactionId",
+            value: 31.98,
+            //revenue: 31.98,
+            shipping: 4.00,
+            coupon: 'APPARELSALE',
+            currency: 'GBP',
+            products: [
+                {
+                  product_id: 'abc',
+                    category: 'Merch',
+                    name: 'Food/Drink',
+                    brand: '',
+                    variant: 'Extra topped',
+                    price: 3.00,
+                    quantity: 2,
+                    currency: 'GBP',
+                    position: 1,
+                    value: 6.00,
+                    typeOfProduct: 'Food',
+                    url: 'https://www.example.com/product/bacon-jam',
+                    image_url: 'https://www.example.com/product/bacon-jam.jpg'
+                }
+             ]
         });
       }
     </script>
     
         <script>
       function fireYeti() {
-        rudderanalytics.track("Fire from Yeti", {
-          orderId: "123",
-          products: [
-            {
-              product_id: 1234,
-              product_name: "Track Pants",
-              amount: 1,
-              price: 220,
-            },
-            {
-              product_id: 5768,
-              product_name: "T-Shirt",
-              amount: 5,
-              price: 1058,
-            },
-          ],
+         rudderanalytics.track('testing from yeti', {
+            checkout_id: 'what is checkout id here??',
+            //event_id: 'eventIDTest',
+            order_id: "transactionId",
+            value: 31.98,
+            //revenue: 31.98,
+            shipping: 4.00,
+            coupon: 'APPARELSALE',
+            currency: 'GBP',
+            products: [
+                {
+                  product_id: 'abc',
+                    category: 'Merch',
+                    name: 'Food/Drink',
+                    brand: '',
+                    variant: 'Extra topped',
+                    price: 3.00,
+                    quantity: 2,
+                    currency: 'GBP',
+                    position: 1,
+                    value: 6.00,
+                    typeOfProduct: 'Food',
+                    url: 'https://www.example.com/product/bacon-jam',
+                    image_url: 'https://www.example.com/product/bacon-jam.jpg'
+                }
+             ]
         });
       }
     </script>
