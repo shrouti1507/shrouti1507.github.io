@@ -1,58 +1,131 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>axeptio Web SDK</title>
-  <script>
-    window._axcb = window._axcb || [];
-    window.axeptioSettings= {
-    clientId:"63732ec8d7967eb5bc6c37c7",
-    };
- 
-    (function(d,s) {
-    var t = d.getElementsByTagName(s)[0],e = d.createElement(s);
-    e.async = true; e.src = "//static.axept.io/sdk.js";
-    t.parentNode.insertBefore(e, t);
-    })(document, "script");
-    window._axcb.push(function(sdk){
-   // here you'll be able to access the methods and properties
-   // of the Axeptio SDK instance. 
-        window.__axeptioSDK.on('cookies:complete', function(choices){
-        console.log(choices);
-    });
-    });
-    </script>
-  <!-- <script>
-    
-    if(window.analytics && typeof window.analytics === 'object') {
-        function identify() {
-            window.analytics.identify('1234', {
-  email: 'Mihir@test.com' ,
-  name: 'Mihir'
-});
+  <head>
+    <script>
+      rudderanalytics = window.rudderanalytics = [];
+      var methods = [
+        "load",
+        "page",
+        "track",
+        "identify",
+        "alias",
+        "group",
+        "ready",
+        "reset",
+      ];
+
+      for (var i = 0; i < methods.length; i++) {
+        var method = methods[i];
+        rudderanalytics[method] = (function (methodName) {
+          return function () {
+            rudderanalytics.push(
+              [methodName].concat(Array.prototype.slice.call(arguments))
+            );
+          };
+        })(method);
+      }
+
+      //Local
+      rudderanalytics.load(
+        "1lp4zr8kEIx1s0CmuFi8a4Pu2Ui",
+        "https://rudderstacwihaveabesal.dataplane.rudderstack.com",
+        {
+          logLevel: "DEBUG",
+          // configUrl: "http://api.rudderstack.com",
+          // destSDKBaseURL: "http://127.0.0.1:5500/dist/legacy/js-integrations/",
         }
-     function group() {
-        window.analytics.group('5678', {
-  name: 'Acme Inc',
-  address: 'India'
-});
-     }  
-function track() {
-    window.analytics.track('New eventssss', {
-  amount: 100 
-}, { 
-  groupId: '5678' 
-});
-    }
-} 
-  </script> -->
-</head>
-<body>
-    <h1>Testing Axeptio Web SDK</h1>
+      );
+
+      //   Prod
+      // rudderanalytics.load(
+      //   "2IXTsZ9JnWzatwVGhvrQ8P4HDxb",
+      //   "https://rudderstacmz.dataplane.rudderstack.com",
+      //   {
+      //     logLevel: "DEBUG",
+      //   }
+      // );
+    </script>
+    <title>Testing Rudder-BingAds Integration</title>
+  </head>
+  <!-- localhost -->
+  <!-- <script src="http://127.0.0.1:5500/dist/rudder-analytics.js"></script> -->
+  <!-- v1.1 localhost -->
+  <!-- <script src="http://127.0.0.1:5500/dist/legacy/rudder-analytics.min.js"></script> -->
+  <!-- v1-staging -->
+  <!-- <script src="https://cdn.rudderlabs.com/v1/rudder-analytics-staging.min.js"></script> -->
+  <!-- v1.1 staging -->
+  <script src="https://cdn.rudderlabs.com/staging/latest/rudder-analytics-staging.min.js"></script>
+  <!-- v1 prod -->
+  <!-- <script src="https://cdn.rudderlabs.com/v1/rudder-analytic s.min.js"></script> -->
+  <!-- v1.1 prod -->
+  <!-- <script src="https://cdn.rudderlabs.com/v1.1/rudder-analytics.min.js"></script> -->
+  <body>
+    <h1>Testing Rudder-FS Device Mode Integration</h1>
+
     <button onclick="identify()">Identify</button>
-    <button onclick="track()">Track</button> 
-    <button onclick="group()">Groupd</button> 
-</body>
+    <button onclick="page()">Page</button>
+    <button onclick="fireChrome()">Fire from chrome</button>
+    <button onclick="fireYeti()">Fire from yeti</button>
+
+    <script>
+      function identify() {
+        rudderanalytics.identify("userId123", {
+          email: "john.doe1@example.com",
+          firstName: "John 1",
+        });
+      }
+    </script>
+
+    <script>
+      function page() {
+        rudderanalytics.page("Last Page", {
+          url: "https://www.google.com/gmail/",
+        });
+      }
+    </script>
+
+    <script>
+      function fireChrome() {
+        rudderanalytics.track("Fire from chrome", {
+          orderId: "123",
+          products: [
+            {
+              product_id: 1234,
+              product_name: "Track Pants",
+              amount: 1,
+              price: 220,
+            },
+            {
+              product_id: 5768,
+              product_name: "T-Shirt",
+              amount: 5,
+              price: 1058,
+            },
+          ],
+        });
+      }
+    </script>
+    
+        <script>
+      function fireYeti() {
+        rudderanalytics.track("Fire from Yeti", {
+          orderId: "123",
+          products: [
+            {
+              product_id: 1234,
+              product_name: "Track Pants",
+              amount: 1,
+              price: 220,
+            },
+            {
+              product_id: 5768,
+              product_name: "T-Shirt",
+              amount: 5,
+              price: 1058,
+            },
+          ],
+        });
+      }
+    </script>
+  </body>
 </html>
