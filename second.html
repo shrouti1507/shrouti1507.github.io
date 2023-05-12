@@ -52,9 +52,9 @@
   <!-- v1.1 localhost -->
   <!-- <script src="http://127.0.0.1:5500/dist/legacy/rudder-analytics.min.js"></script> -->
   <!-- v1-staging -->
-  <!-- <script src="https://cdn.rudderlabs.com/v1/rudder-analytics-staging.min.js"></script> -->
+  <!-- <script src="https://cdn.rudderlabs.com/v1/staging/rudder-analytics-staging.min.js"></script> -->
   <!-- v1.1 staging -->
-  <script src="https://cdn.rudderlabs.com/staging/latest/rudder-analytics-staging.min.js"></script>
+  <!-- <script src="https://cdn.rudderlabs.com/staging/latest/rudder-analytics-staging.min.js"></script> -->
   <!-- v1 prod -->
   <!-- <script src="https://cdn.rudderlabs.com/v1/rudder-analytic s.min.js"></script> -->
   <!-- v1.1 prod -->
@@ -86,7 +86,7 @@
 
     <script>
       function fireChrome() {
-         rudderanalytics.track('testing from chrome', {
+         rudderanalytics.track('v1-chrome', {
             checkout_id: 'what is checkout id here??',
             //event_id: 'eventIDTest',
             order_id: "transactionId",
@@ -119,7 +119,7 @@
     
         <script>
       function fireYeti() {
-         rudderanalytics.track('testing from yeti', {
+         rudderanalytics.track('v1-yeti', {
             checkout_id: 'what is checkout id here??',
             //event_id: 'eventIDTest',
             order_id: "transactionId",
