@@ -572,7 +572,7 @@
   var browser = true;
   var env = {};
   var argv = [];
-  var version$2 = ''; // empty string to avoid regexp issues
+  var version$1 = ''; // empty string to avoid regexp issues
   var versions = {};
   var release = {};
   var config = {};
@@ -636,7 +636,7 @@
     browser: browser,
     env: env,
     argv: argv,
-    version: version$2,
+    version: version$1,
     versions: versions,
     on: on,
     addListener: addListener,
@@ -2808,7 +2808,7 @@
     // Check that value is an object with an inspect function on it
     if (ctx.customInspect &&
         value &&
-        isFunction$1(value.inspect) &&
+        isFunction$2(value.inspect) &&
         // Filter out the util module, it's inspect function is special
         value.inspect !== inspect$1 &&
         // Also filter out any prototype objects using the circular check.
@@ -2843,7 +2843,7 @@
 
     // Some type of object without properties can be shortcutted.
     if (keys.length === 0) {
-      if (isFunction$1(value)) {
+      if (isFunction$2(value)) {
         var name = value.name ? ': ' + value.name : '';
         return ctx.stylize('[Function' + name + ']', 'special');
       }
@@ -2867,7 +2867,7 @@
     }
 
     // Make functions say that they are functions
-    if (isFunction$1(value)) {
+    if (isFunction$2(value)) {
       var n = value.name ? ': ' + value.name : '';
       base = ' [Function' + n + ']';
     }
@@ -3081,7 +3081,7 @@
         (objectToString$1(e) === '[object Error]' || e instanceof Error);
   }
 
-  function isFunction$1(arg) {
+  function isFunction$2(arg) {
     return typeof arg === 'function';
   }
 
@@ -3196,7 +3196,7 @@
   var regex = /\s*function\s+([^\(\s]*)\s*/;
   // based on https://github.com/ljharb/function.prototype.name/blob/adeeeec8bfcc6068b187d7d9fb3d5bb1d3a30899/implementation.js
   function getName(func) {
-    if (!isFunction$1(func)) {
+    if (!isFunction$2(func)) {
       return;
     }
     if (functionsHaveNames()) {
@@ -3254,7 +3254,7 @@
     }
   }
   function inspect(something) {
-    if (functionsHaveNames() || !isFunction$1(something)) {
+    if (functionsHaveNames() || !isFunction$2(something)) {
       return inspect$1(something);
     }
     var rawname = getName(something);
@@ -3708,17 +3708,17 @@
    *
    * @param {Object} val The value to test
    * @returns {boolean} True if value is a Function, otherwise false
-   */function isFunction(val){return toString.call(val)==='[object Function]';}/**
+   */function isFunction$1(val){return toString.call(val)==='[object Function]';}/**
    * Determine if a value is a Stream
    *
    * @param {Object} val The value to test
    * @returns {boolean} True if value is a Stream, otherwise false
-   */function isStream(val){return isObject(val)&&isFunction(val.pipe);}/**
+   */function isStream(val){return isObject(val)&&isFunction$1(val.pipe);}/**
    * Determine if a value is a FormData
    *
    * @param {Object} thing The value to test
    * @returns {boolean} True if value is an FormData, otherwise false
-   */function isFormData(thing){var pattern='[object FormData]';return thing&&(typeof FormData==='function'&&thing instanceof FormData||toString.call(thing)===pattern||isFunction(thing.toString)&&thing.toString()===pattern);}/**
+   */function isFormData(thing){var pattern='[object FormData]';return thing&&(typeof FormData==='function'&&thing instanceof FormData||toString.call(thing)===pattern||isFunction$1(thing.toString)&&thing.toString()===pattern);}/**
    * Determine if a value is a URLSearchParams object
    * @function
    * @param {Object} val The value to test
@@ -3809,7 +3809,7 @@
    * @returns {Array}
    */function toArray(thing){if(!thing)return null;var i=thing.length;if(isUndefined(i))return null;var arr=new Array(i);while(i-->0){arr[i]=thing[i];}return arr;}// eslint-disable-next-line func-names
   var isTypedArray=function(TypedArray){// eslint-disable-next-line func-names
-  return function(thing){return TypedArray&&thing instanceof TypedArray;};}(typeof Uint8Array!=='undefined'&&Object.getPrototypeOf(Uint8Array));var utils$9={isArray:isArray$1,isArrayBuffer:isArrayBuffer,isBuffer:isBuffer,isFormData:isFormData,isArrayBufferView:isArrayBufferView,isString:isString$1,isNumber:isNumber,isObject:isObject,isPlainObject:isPlainObject,isUndefined:isUndefined,isDate:isDate,isFile:isFile,isBlob:isBlob,isFunction:isFunction,isStream:isStream,isURLSearchParams:isURLSearchParams,isStandardBrowserEnv:isStandardBrowserEnv,forEach:forEach,merge:merge,extend:extend,trim:trim,stripBOM:stripBOM,inherits:inherits,toFlatObject:toFlatObject,kindOf:kindOf,kindOfTest:kindOfTest,endsWith:endsWith,toArray:toArray,isTypedArray:isTypedArray,isFileList:isFileList};
+  return function(thing){return TypedArray&&thing instanceof TypedArray;};}(typeof Uint8Array!=='undefined'&&Object.getPrototypeOf(Uint8Array));var utils$9={isArray:isArray$1,isArrayBuffer:isArrayBuffer,isBuffer:isBuffer,isFormData:isFormData,isArrayBufferView:isArrayBufferView,isString:isString$1,isNumber:isNumber,isObject:isObject,isPlainObject:isPlainObject,isUndefined:isUndefined,isDate:isDate,isFile:isFile,isBlob:isBlob,isFunction:isFunction$1,isStream:isStream,isURLSearchParams:isURLSearchParams,isStandardBrowserEnv:isStandardBrowserEnv,forEach:forEach,merge:merge,extend:extend,trim:trim,stripBOM:stripBOM,inherits:inherits,toFlatObject:toFlatObject,kindOf:kindOf,kindOfTest:kindOfTest,endsWith:endsWith,toArray:toArray,isTypedArray:isTypedArray,isFileList:isFileList};
 
   var utils$8=utils$9;function encode(val){return encodeURIComponent(val).replace(/%3A/gi,':').replace(/%24/g,'$').replace(/%2C/gi,',').replace(/%20/g,'+').replace(/%5B/gi,'[').replace(/%5D/gi,']');}/**
    * Build a URL by appending params to the end
@@ -5235,9 +5235,7 @@
   fileName:this.fileName,lineNumber:this.lineNumber,columnNumber:this.columnNumber,stack:this.stack,// Axios
   config:this.config,code:this.code,status:this.response&&this.response.status?this.response.status:null};};return error;}
 
-  var version$1 = "2.32.0";
-
-  var version=version$1;var removeTrailingSlashes=function removeTrailingSlashes(inURL){return inURL&&inURL.endsWith('/')?inURL.replace(/\/+$/,''):inURL;};var setImmediate=browser$1.nextTick.bind(browser$1);var noop=function noop(){};var Analytics=/*#__PURE__*/function(){/**
+  var version='2.32.0';var removeTrailingSlashes=function removeTrailingSlashes(inURL){return inURL&&inURL.endsWith('/')?inURL.replace(/\/+$/,''):inURL;};var isFunction=function isFunction(value){return typeof value==='function'&&Boolean(value.constructor&&value.call&&value.apply);};var setImmediate=browser$1.nextTick.bind(browser$1);var noop=function noop(){};var Analytics=/*#__PURE__*/function(){/**
      * Initialize a new `Analytics` with your RudderStack source's `writeKey` and an
      * optional dictionary of `options`.
      *
@@ -5250,7 +5248,8 @@
      * @param {Number=20000} options.maxInternalQueueSize (default: 20000)
      * @param {Number} options.timeout (default: false)
      * @param {String=info} options.logLevel (default: info)
-     */function Analytics(writeKey,dataPlaneURL,options){_classCallCheck(this,Analytics);options=options||{};if(!writeKey){throw new Error('You must pass your project\'s write key.');}if(!dataPlaneURL){throw new Error('You must pass our data plane url.');}this.queue=[];this.writeKey=writeKey;this.host=removeTrailingSlashes(dataPlaneURL);this.timeout=options.timeout||false;this.flushAt=Math.max(options.flushAt,1)||20;this.flushInterval=options.flushInterval||20000;this.maxInternalQueueSize=options.maxInternalQueueSize||20000;this.logLevel=options.logLevel||'info';this.flushed=false;this.axiosInstance=axios.create({adapter:fetchAdapter});Object.defineProperty(this,'enable',{configurable:false,writable:false,enumerable:true,value:typeof options.enable==='boolean'?options.enable:true});this.logger={error:function error(message){if(this.logLevel!=='off'){var _console;for(var _len=arguments.length,args=new Array(_len>1?_len-1:0),_key=1;_key<_len;_key++){args[_key-1]=arguments[_key];}(_console=console).error.apply(_console,["".concat(new Date().toISOString()," [\"Rudder\"] error: ").concat(message)].concat(args));}},info:function info(message){if(['silly','debug','info'].includes(this.logLevel)){var _console2;for(var _len2=arguments.length,args=new Array(_len2>1?_len2-1:0),_key2=1;_key2<_len2;_key2++){args[_key2-1]=arguments[_key2];}(_console2=console).log.apply(_console2,["".concat(new Date().toISOString()," [\"Rudder\"] info: ").concat(message)].concat(args));}},debug:function debug(message){if(['silly','debug'].includes(this.logLevel)){var _console3;for(var _len3=arguments.length,args=new Array(_len3>1?_len3-1:0),_key3=1;_key3<_len3;_key3++){args[_key3-1]=arguments[_key3];}(_console3=console).debug.apply(_console3,["".concat(new Date().toISOString()," [\"Rudder\"] debug: ").concat(message)].concat(args));}},silly:function silly(message){if(['silly'].includes(this.logLevel)){var _console4;for(var _len4=arguments.length,args=new Array(_len4>1?_len4-1:0),_key4=1;_key4<_len4;_key4++){args[_key4-1]=arguments[_key4];}(_console4=console).info.apply(_console4,["".concat(new Date().toISOString()," [\"Rudder\"] silly: ").concat(message)].concat(args));}}};axiosRetry(this.axiosInstance,{retries:0});}_createClass(Analytics,[{key:"_validate",value:function _validate(message,type){try{looselyValidateEvent_1(message,type);}catch(e){if(e.message==='Your message must be < 32kb.'){this.logger.info('Your message must be < 32kb. This is currently surfaced as a warning. Please update your code',message);return;}throw e;}}/**
+     * @param {Function} options.flushOverride (optional)
+     */function Analytics(writeKey,dataPlaneURL,options){_classCallCheck(this,Analytics);options=options||{};if(!writeKey){throw new Error('You must pass your project\'s write key.');}if(!dataPlaneURL){throw new Error('You must pass our data plane url.');}this.queue=[];this.writeKey=writeKey;this.host=removeTrailingSlashes(dataPlaneURL);this.timeout=options.timeout||false;this.flushAt=Math.max(options.flushAt,1)||20;this.flushInterval=options.flushInterval||20000;this.maxInternalQueueSize=options.maxInternalQueueSize||20000;this.logLevel=options.logLevel||'info';this.flushOverride=options.flushOverride&&isFunction(options.flushOverride)?options.flushOverride:undefined;this.flushed=false;this.axiosInstance=axios.create({adapter:fetchAdapter});Object.defineProperty(this,'enable',{configurable:false,writable:false,enumerable:true,value:typeof options.enable==='boolean'?options.enable:true});this.logger={error:function error(message){if(this.logLevel!=='off'){var _console;for(var _len=arguments.length,args=new Array(_len>1?_len-1:0),_key=1;_key<_len;_key++){args[_key-1]=arguments[_key];}(_console=console).error.apply(_console,["".concat(new Date().toISOString()," [\"Rudder\"] error: ").concat(message)].concat(args));}},info:function info(message){if(['silly','debug','info'].includes(this.logLevel)){var _console2;for(var _len2=arguments.length,args=new Array(_len2>1?_len2-1:0),_key2=1;_key2<_len2;_key2++){args[_key2-1]=arguments[_key2];}(_console2=console).log.apply(_console2,["".concat(new Date().toISOString()," [\"Rudder\"] info: ").concat(message)].concat(args));}},debug:function debug(message){if(['silly','debug'].includes(this.logLevel)){var _console3;for(var _len3=arguments.length,args=new Array(_len3>1?_len3-1:0),_key3=1;_key3<_len3;_key3++){args[_key3-1]=arguments[_key3];}(_console3=console).debug.apply(_console3,["".concat(new Date().toISOString()," [\"Rudder\"] debug: ").concat(message)].concat(args));}},silly:function silly(message){if(['silly'].includes(this.logLevel)){var _console4;for(var _len4=arguments.length,args=new Array(_len4>1?_len4-1:0),_key4=1;_key4<_len4;_key4++){args[_key4-1]=arguments[_key4];}(_console4=console).info.apply(_console4,["".concat(new Date().toISOString()," [\"Rudder\"] silly: ").concat(message)].concat(args));}}};axiosRetry(this.axiosInstance,{retries:0});}_createClass(Analytics,[{key:"_validate",value:function _validate(message,type){try{looselyValidateEvent_1(message,type);}catch(e){if(e.message==='Your message must be < 32kb.'){this.logger.info('Your message must be < 32kb. This is currently surfaced as a warning. Please update your code',message);return;}throw e;}}/**
      * Send an identify `message`.
      *
      * @param {Object} message
@@ -5344,7 +5343,7 @@
   // the User-Agent header (see https://fetch.spec.whatwg.org/#terminology-headers
   // and https://developer.mozilla.org/en-US/docs/Web/API/XMLHttpRequest/setRequestHeader),
   // but browsers such as Chrome and Safari have not caught up.
-  var headers={};if(typeof window==='undefined'){headers['user-agent']="analytics-service-worker/".concat(version);headers['Content-Type']="application/json";}var req={method:'POST',url:"".concat(this.host),auth:{username:this.writeKey},data:data,headers:headers};if(this.timeout){req.timeout=typeof this.timeout==='string'?ms(this.timeout):this.timeout;}this.axiosInstance(_objectSpread2(_objectSpread2({},req),{},{'axios-retry':{retries:3,retryCondition:this._isErrorRetryable.bind(this),retryDelay:axiosRetry.exponentialDelay}})).then(function(response){_this.timer=setTimeout(_this.flush.bind(_this),_this.flushInterval);done();}).catch(function(err){console.log(err);_this.logger.error("got error while attempting send for 3 times, dropping ".concat(items.length," events"));_this.timer=setTimeout(_this.flush.bind(_this),_this.flushInterval);if(err.response){var error=new Error(err.response.statusText);return done(error);}done(err);});}},{key:"_isErrorRetryable",value:function _isErrorRetryable(error){// Retry Network Errors.
+  var headers={};if(typeof window==='undefined'){headers['user-agent']="analytics-service-worker/".concat(version);headers['Content-Type']="application/json";}var reqTimeout=typeof this.timeout==='string'?ms(this.timeout):this.timeout;if(this.flushOverride){this.flushOverride({host:"".concat(this.host),writeKey:this.writeKey,data:data,headers:headers,reqTimeout:reqTimeout,flush:this.flush.bind(this),done:done,isErrorRetryable:this._isErrorRetryable.bind(this)});}else {var req={method:'POST',url:"".concat(this.host),auth:{username:this.writeKey},data:data,headers:headers};if(reqTimeout){req.timeout=reqTimeout;}this.axiosInstance(_objectSpread2(_objectSpread2({},req),{},{'axios-retry':{retries:3,retryCondition:this._isErrorRetryable.bind(this),retryDelay:axiosRetry.exponentialDelay}})).then(function(response){_this.timer=setTimeout(_this.flush.bind(_this),_this.flushInterval);done();}).catch(function(err){console.log(err);_this.logger.error("got error while attempting send for 3 times, dropping ".concat(items.length," events"));_this.timer=setTimeout(_this.flush.bind(_this),_this.flushInterval);if(err.response){var error=new Error(err.response.statusText);return done(error);}done(err);});}}},{key:"_isErrorRetryable",value:function _isErrorRetryable(error){// Retry Network Errors.
   if(axiosRetry.isNetworkError(error)){return true;}if(!error.response){// Cannot determine if the request can be retried
   return false;}this.logger.error("error status: ".concat(error.response.status));// Retry Server Errors (5xx).
   if(error.response.status>=500&&error.response.status<=599){return true;}// Retry if rate limited.
