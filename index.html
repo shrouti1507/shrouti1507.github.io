@@ -38,15 +38,20 @@
         rudderanalytics.load(
           // "2CIeIh09zi1BoCPf06QxNUw5pdD",
           "1lp4zr8kEIx1s0CmuFi8a4Pu2Ui",
-          //"http://localhost:8080",
+          //"1obf4qONg9ppXRYbLGxoEm4do5S",
+          //"http://localhost:8080", 
            "https://rudderstacwihaveabesal.dataplane.rudderstack.com",
+            //"https://rudderstacndaacoknlyyjqa.dataplane.rudderstack.com",
           // "https://hosted-dev-dataplane.dev-rudder.rudderlabs.com",
           {
             configUrl: "https://api.rudderlabs.com",
             logLevel: "DEBUG",
             // required for production staging only.
             // run local server from legacy.
-           destSDKBaseURL: "./dist/legacy/js-integrations/"
+           //destSDKBaseURL: "http://127.0.0.1:5500/dist/legacy/js-integrations/" -->
+
+           // for yeti
+           //destSDKBaseURL: "./dist/legacy/js-integrations/"
           }
         );
         function page() {   
@@ -62,17 +67,22 @@
   
 
    function identify() {
-        rudderanalytics.identify("user004", {
+        rudderanalytics.identify("userShrouti001", {
           firstName: "ShroutiRudder",
           lastName: "Rudderstack",
           email: "shrouti@wwe.com",
           phone: "",
           gender: "m",
           birthday: "19990101",
-          city: "London",
           country: "England",
           zip: "81929120",
-          foo: "bar"
+          foo: "bar",
+          first_name: 'John',
+          last_name: 'Doe',
+          denyProp1: 'denyProp1',
+          denyProp2: 'denyProp2',
+          city: 'San Francisco',
+          allowProp1: 'allowProp1',
         },{
           company: {
             name: "test",
@@ -89,6 +99,12 @@
             shipping: 4.00,
             coupon: 'APPARELSALE',
             currency: 'GBP',
+            first_name: 'John',
+            last_name: 'Doe',
+            denyProp1: 'denyProp1',
+            denyProp2: 'denyProp2',
+            city: 'San Francisco',
+            allowProp1: 'allowProp1',
             products:[
             {       product_id: 'abc',
                     category: 'Merch',
@@ -122,8 +138,8 @@
         });
       }
       function orderCompleted() {
-      rudderanalytics.track('testing from yeti', {
-            //"customProp": "testProp",
+      rudderanalytics.track('Order Completed', {
+            "customProp": "testProp",
             checkout_id: 'what is checkout id here??',
             event_id: 'purchaseId',
             order_id: "transactionId",
@@ -135,7 +151,7 @@
             // products: [],
             products: [
                 {
-                  //"customPropProd": "testPropProd",
+                  "customPropProd": "testPropProd",
                   product_id: 'abc',
                     category: 'Merch',
                     name: 'Food/Drink',
@@ -154,7 +170,7 @@
         });
       }
        function checkoutStarted() {
-        rudderanalytics.track('testing from chrome', {
+        rudderanalytics.track('Initiate Checkout', {
             checkout_id: 'what is checkout id here??',
             //event_id: 'eventIDTest',
             order_id: "transactionId",
@@ -202,18 +218,20 @@
         </script>
         <!-- Local Tests -->
           <!-- v1-staging test -->
-          <!--<script src="http://127.0.0.1:5501/dist/rudder-analytics.js"></script> -->
+          <!-- <script src="http://127.0.0.1:5501/dist/rudder-analytics.js"></script> -->
 
          <!--Production-staging / v1.1 test -->
-         <!--<script src="http://127.0.0.1:5500/dist/legacy/rudder-analytics.js"></script> -->
-    
-          <!--yeti-from-Production-staging / v1.1 test -->
-          <script src="./dist/legacy/rudder-analytics.min.js"></script>
+         <!-- <script src="http://127.0.0.1:5500/dist/legacy/rudder-analytics.min.js"></script> -->
+
+         <!--Production-staging-yeti-test / v1.1 test -->
+         <!-- <script src="./dist/legacy/rudder-analytics.min.js"></script> -->
 
          <!-- CDN Tests -->
-     <!-- <script src="/Users/shrouti/workspace/rudder-sdk-js/dist/browser.js"></script> -->
+     <!-- <script src="http://127.0.0.1:5500/rudder-sdk-js/dist/legacy/rudder-analytics.min.js"></script> -->
+     <!-- <script src="http://127.0.0.1:5501/dist/rudder-analytics.js"></script> -->
      <!-- <script src="https://cdn.rudderlabs.com/v1.1/rudder-analytics.min.js"></script> -->
-     <!-- <script src="https://cdn.rudderlabs.com/staging/latest/integrations"></script> -->
+     <!-- <script src="https://cdn.rudderlabs.com/v1.1/rudder-analytics-staging.min.js"></script> -->
+     <script src=https://cdn.rudderlabs.com/staging/latest/rudder-analytics-staging.min.js></script>
      
   </head>
   <body>
