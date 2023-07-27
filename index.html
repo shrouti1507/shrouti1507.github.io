@@ -1,0 +1,374 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>JS SDK Sanity</title>
+    <script>
+      rudderanalytics = window.rudderanalytics = [];
+      var methods = [
+        "load",
+        "page",
+        "track",
+        "identify",
+        "alias",
+        "group",
+        "ready",
+        "reset",
+        "getAnonymousId",
+        "setAnonymousId",
+        "getUserId",
+        "getUserTraits",
+        "getGroupId",
+        "getGroupTraits",
+        "startSession",
+        "endSession",
+        "getSessionId"
+      ];
+      for (var i = 0; i < methods.length; i++) {
+        var method = methods[i];
+        rudderanalytics[method] = (function (methodName) {
+          return function () {
+            rudderanalytics.push(
+              [methodName].concat(Array.prototype.slice.call(arguments))
+            );
+          };
+        })(method);
+      }
+      rudderanalytics.ready(() => {
+        console.log("All set!");
+      });
+    </script>
+    </head>
+    <style>
+      /* CSS to style the form */
+      form {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 10px;
+        padding: 20px;
+        border-radius: 5px;
+        max-width: 500px;
+        margin: 0;
+      }
+
+      .form-field {
+        flex: 1 1 100%;
+        display: flex;
+        align-items: center;
+      }
+
+      .form-field label {
+        min-width: 200px;
+        font-weight: bold;
+      }
+
+      .form-field input,
+      .form-field select {
+        flex: 1;
+        width: 100%;
+        padding: 15px;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+        font-size: 14px;
+      }
+
+      .form-field input[type="text"],
+      .form-field select {
+        border: 1px solid #ccc;
+        border-radius: 4px;
+        font-size: 14px;
+      }
+
+      .form-field input[type="text"] {
+        width: 100%;
+      }
+
+      /* Additional styling for the button */
+         /* Button styling */
+         button {
+          margin-top: 30px;
+          padding: 10px 20px;
+          border: none;
+          border-radius: 4px;
+          background-color: rgb(52, 93, 227); /* Change button color to blue */
+          color: #fff;
+          cursor: pointer;
+        }
+         /* Styling for the navigation buttons */
+        .nav-buttons {
+          display: flex;
+          justify-content: space-between;
+          margin-top: 20px;
+        }
+  
+        .nav-buttons button {
+          padding: 10px 20px;
+          border: none;
+          border-radius: 4px;
+          background-color: rgb(52, 93, 227);
+          color: #fff;
+          cursor: pointer;
+        }
+        .nav-buttons {
+          display: flex;
+          justify-content: space-between;
+          margin-top: 20px;
+        }
+  
+        .nav-buttons button {
+          padding: 10px 20px;
+          border: none;
+          border-radius: 4px;
+          background-color: rgb(52, 93, 227);
+          color: #fff;
+          cursor: pointer;
+        }
+
+
+    /* Additional style for the form field with custom event */
+    .form-field-custom-event {
+      flex: 1;
+      width: 200%; /* Enhance the width to fill its container */
+      max-width: 500px; /* Set a maximum width to ensure responsiveness */
+      padding: 15px;
+      border: 1px solid #374e6f;
+      border-radius: 4px;
+      font-size: 14px;
+      resize: vertical; /* Allow vertical resizing of the textarea */
+      }
+  
+      .form-field-custom-event label {
+        min-width: 200px;
+        font-weight: bold;
+        margin-bottom: 5px; /* Add a little space below the label */
+      }
+  
+      .form-field-custom-event textarea {
+        flex: 1;
+        width: 100%;
+        padding: 15px;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+        font-size: 14px;
+        resize: vertical; /* Allow vertical resizing of the textarea */
+      }
+    </style>
+  </head>
+  <body>
+    <h2>Configure Your Web SDK Test Page</h2>
+    <form>
+      <div class="form-field">
+        <label for="writekey-input">Source WriteKey</label>
+        <input type="text" id="writekey-input" placeholder="Enter WRITE_KEY" />
+      </div>
+
+      <div class="form-field">
+        <label for="data-plane-url-input">Dataplane URL</label>
+        <input type="text" id="data-plane-url-input" placeholder="Enter DATA_PLANE_URL" />
+      </div>
+      <div class="form-field">
+        <label for="config-url-input">Config URL</label>
+        <select id="config-url-dropdown" onchange=handleConfigUrlSelection()>
+          <option value="https://api.rudderlabs.com">Prod Config Url</option>
+          <option value="https://api.dev.rudderlabs.com">Dev Config Url</option>
+          <option value="Other">Other</option>
+        </select>
+        <input type="text" id="config-url-input" placeholder="Enter CONFIG_URL" style="display: none;" />
+      </div>
+
+      <div class="form-field">
+        <label for="integration-name-input">Integration Name To Exclude (optional)</label>
+        <input type="text" id="integration-name-input" placeholder="Enter integration name" />
+      </div>
+
+      <div class="form-field">
+        <label for="dest-sdk-base-url-input">destSDKBaseURL (Used only for local testing)</label>
+        <input type="text" id="dest-sdk-base-url-input" placeholder="Enter destSDKBaseURL" />
+      </div>
+
+      <div class="form-field">
+        <label for="cdn-dropdown">CDN URL for RudderAnalytics</label>
+        <select id="cdn-dropdown" onchange=handleCdnUrlSelection()>
+          <option value="https://cdn.rudderlabs.com/v1.1/rudder-analytics.min.js">Prod CDN</option>
+          <option value="https://cdn.rudderlabs.com/staging/latest/rudder-analytics-staging.min.js">Staging CDN</option>
+          <option value="Other">Other</option>
+        </select>
+        <input type="text" id="cdn-text-input" placeholder="Enter CDN URL" style="display: none;" />
+      </div>
+      <button type="button" onclick="window.updateRudderAnalytics(); cacheValues();">Update SDK configuration</button>  
+    </form>
+    
+    <!-- The script tag with the configurable CDN URL -->
+    <script id="rudder-analytics-script"></script>
+    <div style="display: flex; justify-content: space-between; margin-top: 20px;"></div>
+        <div style="margin-top: 30px; max-width: 500px;">
+        <table style="width: 100%; border-collapse: collapse;">
+            <thead>
+            <tr>
+                <th style="border: 1px solid #ccc; padding: 8px;">Event Type</th>
+                <th style="border: 1px solid #ccc; padding: 8px;">Popular Scenario</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr>
+                <td style="border: 1px solid #ccc; padding: 8px;">Identify</td>
+                <td style="border: 1px solid #ccc; padding: 8px;">
+                <select id="identify">
+                    <option value="make_choice">choose your scenario </option>
+                    <option value="userId_as_int">userId as int</option>
+                    <option value="no_userId_only_traits">no userId only traits</option>
+                    <option value="traits_no_email">Traits without email</option>
+                    <option value="traits_with_email">Traits with email</option>
+                    <option value="only_userId_no_traits"> only userId</option>
+                    <option value="traits_and_context"> traits plus context object</option>
+                    <!-- Add more scenarios here as needed -->
+                </select>
+                </td>
+            </tr>
+            <!-- Add more rows for other events -->
+            <tr>
+                <td style="border: 1px solid #ccc; padding: 8px;">Track</td>
+                <td style="border: 1px solid #ccc; padding: 8px;">
+                <select id="track">
+                    <option value="make_choice">choose your scenario </option>
+                    <option value="only_event_name">Only event name</option>
+                    <option value="event_name_and_props">Event names and properties</option>
+                    <option value="event_with_empty_props">event with empty properties</option>
+                    <option value="props_and_traits">event with properties and traits</option>
+                    <option value="props_and_product">event with properties and product</option>
+                    <!-- Add more scenarios here as needed -->
+                </select>
+                </td>
+            </tr>
+            <!-- Add more rows for other events -->
+            <tr>
+                <td style="border: 1px solid #ccc; padding: 8px;">Page</td>
+                <td style="border: 1px solid #ccc; padding: 8px;">
+                <select id="page">
+                    <option value="make_choice">choose your scenario </option>
+                    <option value="page_name">with only page name</option>
+                    <option value="page_category">with only page category</option>
+                    <option value="page_name_and_category">with page name and category</option>
+                    <option value="page_name_and_props_and_category">with page name category and properties</option>
+                    <!-- Add more scenarios here as needed -->
+                </select>
+                </td>
+            </tr>
+            <tr>
+                <td style="border: 1px solid #ccc; padding: 8px;">Group</td>
+                <td style="border: 1px solid #ccc; padding: 8px;">
+                <select id="group">
+                    <option value="make_choice">choose your scenario </option>
+                    <option value="string_group_Id">Only group Id as string</option>
+                    <option value="int_group_Id">Only group Id as int</option>
+                    <option value="group_Id_and_traits">With group traits</option>
+                    <option value="group_Id_and_traits_and_context">With group traits and context traits</option>
+                    <!-- Add more scenarios here as needed -->
+                </select>
+                </td>
+            </tr>
+            <tr>
+                <td style="border: 1px solid #ccc; padding: 8px;">Alias</td>
+                <td style="border: 1px solid #ccc; padding: 8px;">
+                <select id="alias">
+                    <option value="make_choice">choose your scenario </option>
+                    <option value="alias">Simple Alias Call</option>
+                    <!-- Add more scenarios here as needed -->
+                </select>
+                </td>
+            </tr>
+            <tr>
+                <td style="border: 1px solid #ccc; padding: 8px;">Ecommerce</td>
+                <td style="border: 1px solid #ccc; padding: 8px;">
+                <select id="ecommerce">
+                    <option value="Scenario A">Scenario A</option>
+                    <option value="Scenario B">Scenario B</option>
+                    <option value="Scenario C">Scenario C</option>
+                    <!-- Add more scenarios here as needed -->
+                </select>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+        </div>
+        <!-- New div to display function bodies for different event types -->
+        <div id="function-bodies" style="flex: 1; padding-left: 20px;">
+            <div id="track-function-bodies">
+            <!-- Function bodies for the "track" event type will be dynamically updated here -->
+            </div>
+            <div id="identify-function-bodies">
+            <!-- Function bodies for the "identify" event type will be dynamically updated here -->
+            </div>
+            <div id="page-function-bodies">
+            <!-- Function bodies for the "page" event type will be dynamically updated here -->
+            </div>
+            <div id="group-function-bodies">
+            <!-- Function bodies for the "group" event type will be dynamically updated here -->
+            </div>
+            <div id="alias-function-bodies">
+            <!-- Function bodies for the "alias" event type will be dynamically updated here -->
+            </div>
+            <div id="ecommerce-function-bodies">
+            <!-- Function bodies for the "ecommerce" event type will be dynamically updated here -->
+            </div>
+        </div>
+    </div>
+    <div class="form-field" style="margin-top: 50px; max-width: 500px;">
+        <label for="custom-javascript">Custom Event</label>
+        <textarea id="custom-javascript" rows="6" placeholder="Enter your JavaScript code here"></textarea>
+      </div>
+      <div class="form-field">
+        <button type="button" onclick="executeCustomJavaScript()">Apply</button>
+      </div>
+    <script>
+
+        function handleConfigUrlSelection() {
+            const dropdown = document.getElementById("config-url-dropdown");
+            const inputField = document.getElementById("config-url-input");
+          
+            if (dropdown.value === "Other") {
+              inputField.style.display = "block";
+            } else {
+              inputField.style.display = "none";
+            }
+          }
+        
+        
+        // Function to handle CDN URL selection
+         function handleCdnUrlSelection() {
+            var cdnDropdown = document.getElementById("cdn-dropdown");
+            var cdnTextInput = document.getElementById("cdn-text-input");
+            var selectedOption = cdnDropdown.value;
+        
+            if (selectedOption === "Other") {
+                cdnTextInput.style.display = "block";
+            } else {
+                cdnTextInput.style.display = "none";
+                cdnTextInput.value = ""; 
+            }
+        }
+          // Function to execute custom JavaScript code entered by the user
+        function executeCustomJavaScript() {
+            try {
+            const code = document.getElementById("custom-javascript").value;
+            eval(code);
+            } catch (error) {
+            console.error("Error executing custom JavaScript:", error);
+            }
+        }
+        window.cacheValues = () => {
+          cacheValues();
+        };
+    
+        window.handleScenarioSelection = (selectId) => {
+          handleScenarioSelection(selectId);
+        };
+      </script>
+    <script src="events.js" type="module"></script>
+    <script src="util.js" type="module"></script>
+    <script src="main.js" type="module"></script>
+  </body>
+</html>
+
