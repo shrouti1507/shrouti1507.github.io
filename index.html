@@ -168,6 +168,12 @@
         <label for="data-plane-url-input">Dataplane URL</label>
         <input type="text" id="data-plane-url-input" placeholder="Enter DATA_PLANE_URL" />
       </div>
+
+      <div class="form-field">
+        <label for="optional-load-options">Optional Load Options (JSON)</label>
+        <textarea id="optional-load-options" rows="6" placeholder="Enter optional load options JSON here"></textarea>
+      </div>
+      
       <div class="form-field">
         <label for="config-url-input">Config URL</label>
         <select id="config-url-dropdown" onchange=handleConfigUrlSelection()>
@@ -217,6 +223,7 @@
                 <td style="border: 1px solid #ccc; padding: 8px;">
                 <select id="identify">
                     <option value="make_choice">choose your scenario </option>
+                    <option value="fire_all_types_of_identify">fire all types Identify events</option>
                     <option value="userId_as_int">userId as int</option>
                     <option value="no_userId_only_traits">no userId only traits</option>
                     <option value="traits_no_email">Traits without email</option>
@@ -233,6 +240,7 @@
                 <td style="border: 1px solid #ccc; padding: 8px;">
                 <select id="track">
                     <option value="make_choice">choose your scenario </option>
+                    <option value="fire_all_types_of_track">fire all types Track events</option>
                     <option value="only_event_name">Only event name</option>
                     <option value="event_name_and_props">Event names and properties</option>
                     <option value="event_with_empty_props">event with empty properties</option>
@@ -248,6 +256,7 @@
                 <td style="border: 1px solid #ccc; padding: 8px;">
                 <select id="page">
                     <option value="make_choice">choose your scenario </option>
+                    <option value="fire_all_types_of_page">fire all types Page events</option>
                     <option value="page_name">with only page name</option>
                     <option value="page_category">with only page category</option>
                     <option value="page_name_and_category">with page name and category</option>
@@ -261,6 +270,7 @@
                 <td style="border: 1px solid #ccc; padding: 8px;">
                 <select id="group">
                     <option value="make_choice">choose your scenario </option>
+                    <option value="fire_all_types_of_group">fire all types Group events</option>
                     <option value="string_group_Id">Only group Id as string</option>
                     <option value="int_group_Id">Only group Id as int</option>
                     <option value="group_Id_and_traits">With group traits</option>
