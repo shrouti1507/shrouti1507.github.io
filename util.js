@@ -27,7 +27,6 @@ export function handleIdentifyScenario() {
     console.log("Selected Scenario:", selectedScenario);
     switch (selectedScenario) {
         case "userId_as_int":
-            console.log("here");
             userId_as_int();
             break;
         case "no_userId_only_traits":
@@ -43,6 +42,13 @@ export function handleIdentifyScenario() {
             traits_and_context();
             break;
         // Add more scenarios here as needed
+        case "fire_all_types_of_identify":
+            userId_as_int();
+            no_userId_only_traits();  
+            traits_no_email();  
+            only_userId_no_traits();
+            traits_and_context();
+            break;
         default:
             break;
     }
@@ -67,7 +73,14 @@ export function handleTrackScenario() {
         case "props_and_product":
             props_and_product();
             break;
-        default:
+        case "fire_all_types_of_track":
+            only_event_name();
+            event_name_and_props();
+            event_with_empty_props();
+            props_and_traits();
+            props_and_product();
+            break;
+            default:
             break;
     }
 }
@@ -88,8 +101,15 @@ export function handlePageScenario() {
         case "page_name_and_props_and_category":
             page_name_and_props_and_category();
             break;
-        default:
+        case "fire_all_types_of_page":
+            page_name();
+            page_category();
+            page_name_and_category();
+            page_name_and_props_and_category();
             break;
+
+        default:
+        break;
     }
 
 }
@@ -110,6 +130,13 @@ export function handleGroupScenario() {
         case "group_Id_and_traits_and_context":
             group_Id_and_traits_and_context();
             break;
+        case "fire_all_types_of_page":
+            string_group_Id();
+            int_group_Id();
+            group_Id_and_traits();
+            group_Id_and_traits_and_context();
+            break;
+    
         default:
             break;
     }
@@ -127,9 +154,27 @@ export function handleAliasScenario() {
     }
 }
 
+export function updateOptionalLoadOptions(rudderConfig) {
+    const optionalLoadOptions = document.getElementById("optional-load-options")?.value;
+    const parsedOptions = JSON.parse(optionalLoadOptions);
+    
+    if (typeof parsedOptions === 'object' && parsedOptions !== null) {
+      // Merge the parsedOptions with the existing rudderConfig object except for integrations
+      if (parsedOptions.integrations) {
+        rudderConfig.integrations = { ...rudderConfig.integrations, ...parsedOptions.integrations };
+        delete parsedOptions.integrations; // Remove integrations from parsedOptions to avoid overwriting
+      }
+      rudderConfig = {
+        ...rudderConfig,
+        ...parsedOptions,
+      };
+    }
+  }
+  
+
 // Function to update the CDN URL and integrations object
 export function updateRudderAnalytics() {
-    var workspaceIdInput = document.getElementById("writekey-input");
+    var writekeyInput = document.getElementById("writekey-input");
     var dataPlaneUrlInput = document.getElementById("data-plane-url-input");
     var configUrlInput = document.getElementById("config-url-input");
     var destSdkBaseUrlInput = document.getElementById("dest-sdk-base-url-input");
@@ -138,7 +183,7 @@ export function updateRudderAnalytics() {
     var cdnTextInput = document.getElementById("cdn-text-input");
 
     // Fetch the values from the input fields
-    var workspaceId = workspaceIdInput.value;
+    var writekey = writekeyInput.value;
     var dataPlaneUrl = dataPlaneUrlInput.value;
     var configUrl = configUrlInput.value;
     var integrationName = integrationNameInput.value;
@@ -165,14 +210,17 @@ export function updateRudderAnalytics() {
         // for now only a single integration can be disabled
         rudderConfig.integrations[integrationName] = false;
     }
-
+    const optionalLoadOptions = document.getElementById("optional-load-options")?.value;
+    if(optionalLoadOptions) {
+        updateOptionalLoadOptions(rudderConfig);
+    }
     // Load RudderAnalytics with the updated configuration
-    rudderanalytics.load(workspaceId, dataPlaneUrl, rudderConfig);
+    rudderanalytics.load(writekey, dataPlaneUrl, rudderConfig);
 }
 
 // Function to cache the entered values
 export function cacheValues() {
-    var workspaceIdInput = document.getElementById("writekey-input");
+    var writekeyInput = document.getElementById("writekey-input");
     var dataPlaneUrlInput = document.getElementById("data-plane-url-input");
     var configUrlInput = document.getElementById("config-url-input");
     var integrationNameInput = document.getElementById("integration-name-input");
@@ -180,14 +228,14 @@ export function cacheValues() {
     var cdnTextInput = document.getElementById("cdn-text-input");
 
     // Read values from the input fields
-    var workspaceId = workspaceIdInput.value;
+    var writekey = writekeyInput.value;
     var dataPlaneUrl = dataPlaneUrlInput.value;
     var configUrl = configUrlInput.value;
     var integrationName = integrationNameInput.value;
     var cdnUrl = cdnDropdown.value === "Other" ? cdnTextInput.value : cdnDropdown.value; // Get the CDN URL from the input
 
     // Cache the values in the local storage
-    localStorage.setItem("workspaceId", workspaceId);
+    localStorage.setItem("writekey", writekey);
     localStorage.setItem("dataPlaneUrl", dataPlaneUrl);
     localStorage.setItem("configUrl", configUrl);
     localStorage.setItem("integrationName", integrationName);
@@ -196,7 +244,7 @@ export function cacheValues() {
 
 // Function to populate the text boxes with cached values (if available)
 export function populateCachedValues() {
-    var workspaceIdInput = document.getElementById("writekey-input");
+    var writekeyInput = document.getElementById("writekey-input");
     var dataPlaneUrlInput = document.getElementById("data-plane-url-input");
     var configUrlInput = document.getElementById("config-url-input");
     var integrationNameInput = document.getElementById("integration-name-input");
@@ -204,14 +252,14 @@ export function populateCachedValues() {
     var cdnTextInput = document.getElementById("cdn-text-input");
 
     // Read cached values from the local storage
-    var workspaceId = localStorage.getItem("workspaceId");
+    var writekey = localStorage.getItem("writekey");
     var dataPlaneUrl = localStorage.getItem("dataPlaneUrl");
     var configUrl = localStorage.getItem("configUrl");
     var integrationName = localStorage.getItem("integrationName");
     var cdnUrl = localStorage.getItem("cdnUrl");
 
     // Set the values in the input fields (if available)
-    workspaceIdInput.value = workspaceId || "";
+    writekeyInput.value = writekey || "";
     dataPlaneUrlInput.value = dataPlaneUrl || "";
     configUrlInput.value = configUrl || "";
     integrationNameInput.value = integrationName || "";
