@@ -1,3 +1,4 @@
+// util.js
 // This file contains the functions to handle the CDN URL selection, update the RudderAnalytics object and cache the entered values
 
 import {
@@ -382,42 +383,6 @@ export function updateFunctionBodies(eventType, scenario) {
     functionBodiesDiv.innerText = functionBodyText;
 }
 
-// Add event listeners for all event type dropdowns
-document.getElementById("track").addEventListener("change", function () {
-    const selectedScenario = document.getElementById("track").value;
-    handleTrackScenario();
-    updateFunctionBodies("track", selectedScenario);
-});
-
-document.getElementById("identify").addEventListener("change", function () {
-    const selectedScenario = document.getElementById("identify").value;
-    handleIdentifyScenario();
-    updateFunctionBodies("identify", selectedScenario);
-});
-
-document.getElementById("page").addEventListener("change", function () {
-    const selectedScenario = document.getElementById("page").value;
-    handlePageScenario();
-    updateFunctionBodies("page", selectedScenario);
-});
-
-document.getElementById("group").addEventListener("change", function () {
-    const selectedScenario = document.getElementById("group").value;
-    handleGroupScenario();
-    updateFunctionBodies("group", selectedScenario);
-});
-
-document.getElementById("alias").addEventListener("change", function () {
-    const selectedScenario = document.getElementById("alias").value;
-    handleAliasScenario();
-    updateFunctionBodies("alias", selectedScenario);
-});
-
-document.getElementById("ecommerce").addEventListener("change", function () {
-    const selectedScenario = document.getElementById("ecommerce").value;
-    handlePageScenario();
-    updateFunctionBodies("ecommerce", selectedScenario);
-});
 
 
 
